@@ -1,13 +1,13 @@
 {
   "name": "com.common-games.utilities.extensions",
-  "displayName": "Common-Games - Extensions",
+  "displayName": "Utilities.Extensions",
   "version": "0.0.0",
   "unity": "2020.3",
   "description": "Useful set of Unity-specific C# Extensions",
   "keywords": [
     "unity",
-	"unity3d",
-	"upm",
+    "unity3d",
+    "upm",
     "common-games",
     "utility"
   ],
