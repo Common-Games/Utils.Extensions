@@ -1,5 +1,6 @@
 {
     "name": "Unity.com.common-games.utilities.extensions",
+    "rootNamespace": "CGTK.Utilities.Extensions",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
