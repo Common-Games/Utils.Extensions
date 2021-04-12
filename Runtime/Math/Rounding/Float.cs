@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 
 using JetBrains.Annotations;
@@ -10,6 +11,26 @@ namespace CGTK.Utilities.Extensions
 	{
 		public static partial class Rounding
 		{
+			public enum RoundingMode
+			{
+				Nearest,
+				Up,
+				Down
+			}
+
+			[PublicAPI]
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			public static float Round(this float value, in RoundingMode roundingMode)
+			{
+				return roundingMode switch
+				{
+					RoundingMode.Nearest => Mathf.Round(f: value),
+					RoundingMode.Down    => Mathf.Floor(f: value),
+					RoundingMode.Up      => Mathf.Ceil(f:  value),
+					_ => throw new ArgumentOutOfRangeException(nameof(roundingMode), roundingMode, null)
+				};
+			}
+			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static float Round(this float value)
@@ -29,12 +50,7 @@ namespace CGTK.Utilities.Extensions
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static int FloorToInt(this float value)
 				=> Mathf.FloorToInt(f: value);
-			
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static ushort FloorToHalf(this float value)
-				=> Mathf.FloatToHalf(val: value);
-			
+
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static float Ceil(this float value)
