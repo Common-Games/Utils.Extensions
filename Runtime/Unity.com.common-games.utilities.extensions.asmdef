@@ -1,5 +1,5 @@
 {
-    "name": "Unity.com.{{COMPANY}}.{{REPOSITORY_NAME}}",
+    "name": "Unity.com.common-games.utilities.extensions",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
