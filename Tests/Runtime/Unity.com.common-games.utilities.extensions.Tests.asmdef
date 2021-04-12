@@ -1,7 +1,7 @@
 {
-  "name": "Unity.com.{{COMPANY}}.{{REPOSITORY_NAME}}.Tests",
+  "name": "Unity.com.common-games.utilities.extensions.Tests",
   "references": [
-    "Unity.com.{{COMPANY}}.{{REPOSITORY_NAME}}"
+    "Unity.com.common-games.utilities.extensions"
   ],
   "optionalUnityReferences": [
     "TestAssemblies"
