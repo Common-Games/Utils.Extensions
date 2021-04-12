@@ -7,12 +7,12 @@ using UnityEngine.TestTools;
 
 namespace CGTK.Utilities.Extensions
 {
-	using Math;
-
-	namespace Tests
+	namespace Math
 	{
 		public sealed class RoundingTests
 		{
+			#region Built-in
+
 			[UnityTest]
 			public IEnumerator Rounding_Float_Round()
 			{
@@ -165,6 +165,8 @@ namespace CGTK.Utilities.Extensions
 				Assert.AreEqual(expected: 2, actual: __resultC);
 				Assert.AreEqual(expected: -2, actual: __resultD);
 			}
+			
+			#endregion
 
 			#region With Mode
 
@@ -320,6 +322,239 @@ namespace CGTK.Utilities.Extensions
 				Assert.AreEqual(expected: 0, actual: __resultB);
 				Assert.AreEqual(expected: 2, actual: __resultC);
 				Assert.AreEqual(expected: -2, actual: __resultD);
+			}
+			
+			#endregion
+
+			#region PowerOfTwo
+
+			[UnityTest]
+			public IEnumerator Rounding_Float_PowerOfTwo_Closest()
+			{
+				const float __A = 7.1f;
+				const float __B = 139.3f;
+				const float __C = 4.1f;
+				const float __D = 254f;
+				const float __E = 256f;
+				const float __F = 0f;
+				const float __G = -1.2642f;
+
+				float __resultA = __A.ClosestPowerOfTwo();
+				float __resultB = __B.ClosestPowerOfTwo();
+				float __resultC = __C.ClosestPowerOfTwo();
+				float __resultD = __D.ClosestPowerOfTwo();
+				float __resultE = __E.ClosestPowerOfTwo();
+				float __resultF = __F.ClosestPowerOfTwo();
+				float __resultG = __G.ClosestPowerOfTwo();
+				
+				Debug.Log(message: $"A = Input: {__A}, Output: {__resultA}");
+				Debug.Log(message: $"B = Input: {__B}, Output: {__resultB}");
+				Debug.Log(message: $"C = Input: {__C}, Output: {__resultC}");
+				Debug.Log(message: $"D = Input: {__D}, Output: {__resultD}");
+				Debug.Log(message: $"E = Input: {__E}, Output: {__resultE}");
+				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
+				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
+
+				yield return null;
+
+				Assert.AreEqual(actual: __resultA, expected: 8);
+				Assert.AreEqual(actual: __resultB, expected: 128);
+				Assert.AreEqual(actual: __resultC, expected: 4);
+				Assert.AreEqual(actual: __resultD, expected: 256);
+				Assert.AreEqual(actual: __resultE, expected: 256);
+				Assert.AreEqual(actual: __resultF, expected: 0);
+				Assert.AreEqual(actual: __resultG, expected: 0);
+			}
+			
+			[UnityTest]
+			public IEnumerator Rounding_Float_PowerOfTwo_Next()
+			{
+				const float __A = 7.1f;
+				const float __B = 139.3f;
+				const float __C = 4.1f;
+				const float __D = 254f;
+				const float __E = 256f;
+				const float __F = 0f;
+				const float __G = -1.2642f;
+
+				float __resultA = __A.NextPowerOfTwo();
+				float __resultB = __B.NextPowerOfTwo();
+				float __resultC = __C.NextPowerOfTwo();
+				float __resultD = __D.NextPowerOfTwo();
+				float __resultE = __E.NextPowerOfTwo();
+				float __resultF = __F.NextPowerOfTwo();
+				float __resultG = __G.NextPowerOfTwo();
+				
+				Debug.Log(message: $"A = Input: {__A}, Output: {__resultA}");
+				Debug.Log(message: $"B = Input: {__B}, Output: {__resultB}");
+				Debug.Log(message: $"C = Input: {__C}, Output: {__resultC}");
+				Debug.Log(message: $"D = Input: {__D}, Output: {__resultD}");
+				Debug.Log(message: $"E = Input: {__E}, Output: {__resultE}");
+				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
+				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
+
+				yield return null;
+
+				Assert.AreEqual(actual: __resultA, expected: 8);
+				Assert.AreEqual(actual: __resultB, expected: 256);
+				Assert.AreEqual(actual: __resultC, expected: 4);
+				Assert.AreEqual(actual: __resultD, expected: 256);
+				Assert.AreEqual(actual: __resultE, expected: 256);
+				Assert.AreEqual(actual: __resultF, expected: 0);
+				Assert.AreEqual(actual: __resultG, expected: 0);
+			}
+			
+			[UnityTest]
+			public IEnumerator Rounding_Float_PowerOfTwo_Previous()
+			{
+				const float __A = 7.1f;
+				const float __B = 139.3f;
+				const float __C = 4.1f;
+				const float __D = 254f;
+				const float __E = 256f;
+				const float __F = 0f;
+				const float __G = -1.2642f;
+
+				float __resultA = __A.PreviousPowerOfTwo();
+				float __resultB = __B.PreviousPowerOfTwo();
+				float __resultC = __C.PreviousPowerOfTwo();
+				float __resultD = __D.PreviousPowerOfTwo();
+				float __resultE = __E.PreviousPowerOfTwo();
+				float __resultF = __F.PreviousPowerOfTwo();
+				float __resultG = __G.PreviousPowerOfTwo();
+				
+				Debug.Log(message: $"A = Input: {__A}, Output: {__resultA}");
+				Debug.Log(message: $"B = Input: {__B}, Output: {__resultB}");
+				Debug.Log(message: $"C = Input: {__C}, Output: {__resultC}");
+				Debug.Log(message: $"D = Input: {__D}, Output: {__resultD}");
+				Debug.Log(message: $"E = Input: {__E}, Output: {__resultE}");
+				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
+				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
+
+				yield return null;
+
+				Assert.AreEqual(actual: __resultA, expected: 4);
+				Assert.AreEqual(actual: __resultB, expected: 128);
+				Assert.AreEqual(actual: __resultC, expected: 4);
+				Assert.AreEqual(actual: __resultD, expected: 128);
+				Assert.AreEqual(actual: __resultE, expected: 256);
+				Assert.AreEqual(actual: __resultF, expected: 0);
+				Assert.AreEqual(actual: __resultG, expected: 0);
+			}
+			
+			
+			[UnityTest]
+			public IEnumerator Rounding_Float_PowerOfTwo_Mode_Nearest()
+			{
+				const float __A = 7.1f;
+				const float __B = 139.3f;
+				const float __C = 4.1f;
+				const float __D = 254f;
+				const float __E = 256f;
+				const float __F = 0f;
+				const float __G = -1.2642f;
+
+				float __resultA = __A.ToPowerOfTwo(Rounding.Mode.Nearest);
+				float __resultB = __B.ToPowerOfTwo(Rounding.Mode.Nearest);
+				float __resultC = __C.ToPowerOfTwo(Rounding.Mode.Nearest);
+				float __resultD = __D.ToPowerOfTwo(Rounding.Mode.Nearest);
+				float __resultE = __E.ToPowerOfTwo(Rounding.Mode.Nearest);
+				float __resultF = __F.ToPowerOfTwo(Rounding.Mode.Nearest);
+				float __resultG = __G.ToPowerOfTwo(Rounding.Mode.Nearest);
+				
+				Debug.Log(message: $"A = Input: {__A}, Output: {__resultA}");
+				Debug.Log(message: $"B = Input: {__B}, Output: {__resultB}");
+				Debug.Log(message: $"C = Input: {__C}, Output: {__resultC}");
+				Debug.Log(message: $"D = Input: {__D}, Output: {__resultD}");
+				Debug.Log(message: $"E = Input: {__E}, Output: {__resultE}");
+				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
+				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
+
+				yield return null;
+
+				Assert.AreEqual(actual: __resultA, expected: 8);
+				Assert.AreEqual(actual: __resultB, expected: 128);
+				Assert.AreEqual(actual: __resultC, expected: 4);
+				Assert.AreEqual(actual: __resultD, expected: 256);
+				Assert.AreEqual(actual: __resultE, expected: 256);
+				Assert.AreEqual(actual: __resultF, expected: 0);
+				Assert.AreEqual(actual: __resultG, expected: 0);
+			}
+			
+			[UnityTest]
+			public IEnumerator Rounding_Float_PowerOfTwo_Mode_Up()
+			{
+				const float __A = 7.1f;
+				const float __B = 139.3f;
+				const float __C = 4.1f;
+				const float __D = 254f;
+				const float __E = 256f;
+				const float __F = 0f;
+				const float __G = -1.2642f;
+
+				float __resultA = __A.ToPowerOfTwo(Rounding.Mode.Up);
+				float __resultB = __B.ToPowerOfTwo(Rounding.Mode.Up);
+				float __resultC = __C.ToPowerOfTwo(Rounding.Mode.Up);
+				float __resultD = __D.ToPowerOfTwo(Rounding.Mode.Up);
+				float __resultE = __E.ToPowerOfTwo(Rounding.Mode.Up);
+				float __resultF = __F.ToPowerOfTwo(Rounding.Mode.Up);
+				float __resultG = __G.ToPowerOfTwo(Rounding.Mode.Up);
+				
+				Debug.Log(message: $"A = Input: {__A}, Output: {__resultA}");
+				Debug.Log(message: $"B = Input: {__B}, Output: {__resultB}");
+				Debug.Log(message: $"C = Input: {__C}, Output: {__resultC}");
+				Debug.Log(message: $"D = Input: {__D}, Output: {__resultD}");
+				Debug.Log(message: $"E = Input: {__E}, Output: {__resultE}");
+				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
+				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
+
+				yield return null;
+
+				Assert.AreEqual(actual: __resultA, expected: 8);
+				Assert.AreEqual(actual: __resultB, expected: 256);
+				Assert.AreEqual(actual: __resultC, expected: 4);
+				Assert.AreEqual(actual: __resultD, expected: 256);
+				Assert.AreEqual(actual: __resultE, expected: 256);
+				Assert.AreEqual(actual: __resultF, expected: 0);
+				Assert.AreEqual(actual: __resultG, expected: 0);
+			}
+			
+			[UnityTest]
+			public IEnumerator Rounding_Float_PowerOfTwo_Mode_Down()
+			{
+				const float __A = 7.1f;
+				const float __B = 139.3f;
+				const float __C = 4.1f;
+				const float __D = 254f;
+				const float __E = 256f;
+				const float __F = 0f;
+				const float __G = -1.2642f;
+
+				float __resultA = __A.ToPowerOfTwo(Rounding.Mode.Down);
+				float __resultB = __B.ToPowerOfTwo(Rounding.Mode.Down);
+				float __resultC = __C.ToPowerOfTwo(Rounding.Mode.Down);
+				float __resultD = __D.ToPowerOfTwo(Rounding.Mode.Down);
+				float __resultE = __E.ToPowerOfTwo(Rounding.Mode.Down);
+				float __resultF = __F.ToPowerOfTwo(Rounding.Mode.Down);
+				float __resultG = __G.ToPowerOfTwo(Rounding.Mode.Down);
+				
+				Debug.Log(message: $"A = Input: {__A}, Output: {__resultA}");
+				Debug.Log(message: $"B = Input: {__B}, Output: {__resultB}");
+				Debug.Log(message: $"C = Input: {__C}, Output: {__resultC}");
+				Debug.Log(message: $"D = Input: {__D}, Output: {__resultD}");
+				Debug.Log(message: $"E = Input: {__E}, Output: {__resultE}");
+				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
+				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
+
+				yield return null;
+
+				Assert.AreEqual(actual: __resultA, expected: 4);
+				Assert.AreEqual(actual: __resultB, expected: 128);
+				Assert.AreEqual(actual: __resultC, expected: 4);
+				Assert.AreEqual(actual: __resultD, expected: 128);
+				Assert.AreEqual(actual: __resultE, expected: 256);
+				Assert.AreEqual(actual: __resultF, expected: 0);
+				Assert.AreEqual(actual: __resultG, expected: 0);
 			}
 			
 			#endregion
