@@ -11,7 +11,8 @@ namespace CGTK.Utilities.Extensions
 	{
 		public static partial class Rounding
 		{
-			public enum RoundingMode
+			[PublicAPI]
+			public enum Mode
 			{
 				Nearest,
 				Up,
@@ -20,13 +21,26 @@ namespace CGTK.Utilities.Extensions
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float Round(this float value, in RoundingMode roundingMode)
+			public static float Round(this float value, in Mode roundingMode)
 			{
 				return roundingMode switch
 				{
-					RoundingMode.Nearest => Mathf.Round(f: value),
-					RoundingMode.Down    => Mathf.Floor(f: value),
-					RoundingMode.Up      => Mathf.Ceil(f:  value),
+					Mode.Nearest => Mathf.Round(f: value),
+					Mode.Down    => Mathf.Floor(f: value),
+					Mode.Up      => Mathf.Ceil(f:  value),
+					_ => throw new ArgumentOutOfRangeException(nameof(roundingMode), roundingMode, null)
+				};
+			}
+			
+			[PublicAPI]
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			public static int RoundToInt(this float value, in Mode roundingMode)
+			{
+				return roundingMode switch
+				{
+					Mode.Nearest => Mathf.RoundToInt(f: value),
+					Mode.Down    => Mathf.FloorToInt(f: value),
+					Mode.Up      => Mathf.CeilToInt(f:  value),
 					_ => throw new ArgumentOutOfRangeException(nameof(roundingMode), roundingMode, null)
 				};
 			}
@@ -58,7 +72,7 @@ namespace CGTK.Utilities.Extensions
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float CeilToInt(this float value)
+			public static int CeilToInt(this float value)
 				=> Mathf.CeilToInt(f: value);
 			
 		}
