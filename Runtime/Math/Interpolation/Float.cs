@@ -29,6 +29,7 @@ namespace CGTK.Utilities.Extensions
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static float LerpAngle(this float from, in float to, in float t)
 				=> Mathf.LerpAngle(a: from, b: to, t: t);
+
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
