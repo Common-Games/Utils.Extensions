@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 
 using JetBrains.Annotations;
+using UnityEngine;
 
 namespace CGTK.Utilities.Extensions
 {
@@ -25,10 +26,10 @@ namespace CGTK.Utilities.Extensions
 				for (__index = 0; __index < _CACHE_SIZE; __index++)
 				{
 					float __value = ((__index + 0.5f) / _CACHE_SIZE * Constants.TAU);
-					SinCache[__index]  = (float)System.Math.Sin( __value);
-					CosCache[__index]  = (float)System.Math.Cos( __value);
-					AsinCache[__index] = (float)System.Math.Asin(__value);
-					AcosCache[__index] = (float)System.Math.Acos(__value);
+					SinCache[__index]  = Mathf.Sin(__value);
+					CosCache[__index]  = Mathf.Cos(__value);
+					AsinCache[__index] = Mathf.Asin(__value);
+					AcosCache[__index] = Mathf.Acos(__value);
 				}
 
 				const float __FACTOR = (_CACHE_SIZE / 360f);
@@ -38,10 +39,10 @@ namespace CGTK.Utilities.Extensions
 
 					float __angleRadian = (__index * Constants.DEG_TO_RAD);
 					
-					SinCache[__element] = (float)System.Math.Sin( __angleRadian);
-					CosCache[__element] = (float)System.Math.Cos( __angleRadian);
-					SinCache[__element] = (float)System.Math.Asin(__angleRadian);
-					CosCache[__element] = (float)System.Math.Acos(__angleRadian);
+					SinCache[__element]  = Mathf.Sin(__angleRadian);
+					CosCache[__element]  = Mathf.Cos(__angleRadian);
+					AsinCache[__element] = Mathf.Asin(__angleRadian);
+					AcosCache[__element] = Mathf.Acos(__angleRadian);
 				}
 			}
 			
@@ -54,6 +55,8 @@ namespace CGTK.Utilities.Extensions
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static float FastCos(this float value)
 				=> CosCache[(int)(value * _INDEX_FACTOR) & _INDEX_MASK];
+			
+			//TODO: Maybe add clamps to Asin/Acos, so it doesn't excede -1 and 1
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
