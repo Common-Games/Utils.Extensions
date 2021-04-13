@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -58,39 +59,39 @@ namespace CGTK.Utilities.Extensions
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float FastSin(in this float value)
+			public static float SinFast(in this float value)
 				=> SinCache[(int) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float FastCos(in this float value)
+			public static float CosFast(in this float value)
 				=> CosCache[(int) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float FastTan(in this float value)
+			public static float TanFast(in this float value)
 				=> TanCache[(int) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
 			//TODO: Maybe add clamps to Asin/Acos, so it doesn't excede -1 and 1
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float FastAsin(in this float value)
+			public static float AsinFast(in this float value)
 				=> AsinCache[(int) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float FastAcos(in this float value)
+			public static float AcosFast(in this float value)
 				=> AcosCache[(int) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float FastAtan(in this float value)
+			public static float AtanFast(in this float value)
 				=> AtanCache[(int) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static int FastSqrt(this int value)
+			public static int SqrtFast(in this int value)
 			{
 				if (value == 0) return 0; // Avoid zero divide
 
@@ -109,23 +110,21 @@ namespace CGTK.Utilities.Extensions
 			[StructLayout(LayoutKind.Explicit)]
 			private struct IntFloat
 			{
-				[UsedImplicitly]
 				[FieldOffset(0)]
 				public int Int;
 				
-				[UsedImplicitly]
 				[FieldOffset(0)]
 				public float Float;
 			}
 			
+			//Based on https://www.gamedev.net/forums/topic/704525-3-quick-ways-to-calculate-the-square-root-in-c/5417778/?page=1
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static unsafe float FastSqrt(this float value)
+			public static unsafe float SqrtFast(this float value)
 			{
 				IntFloat __union;
 				
 				__union.Float = 0;
-
 				__union.Int = 0x2035AD0C + (*(int*)(&value) >> 1);
 				
 				return value / __union.Float + __union.Float * 0.25f;
