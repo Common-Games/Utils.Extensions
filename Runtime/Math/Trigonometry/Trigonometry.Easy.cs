@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.CompilerServices;
 
 using JetBrains.Annotations;
@@ -15,64 +14,71 @@ namespace CGTK.Utilities.Extensions
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static float SqrDistance(in this Vector3 from, in Vector3 to)
 				=> (to - from).sqrMagnitude;
+
+			[PublicAPI]
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			public static float SqrDistance(this Transform from, in Transform to)
+				=> (to.position - from.position).sqrMagnitude;
 			
 			/// <summary>
 			/// Faster than Vector3.Distance, exact same result.
 			/// </summary>
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float DistanceFast(in this Vector3 from, in Vector3 to)
+			public static float Distance(in this Vector3 from, in Vector3 to)
 				=> (to - from).magnitude;
-			
+
+			[PublicAPI]
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			public static float Distance(this Transform from, in Transform to)
+				=> (to.position - from.position).magnitude;
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float ToDegrees(ref this float angle)
+			public static float AsDegrees(in this float angle)
 				=> (angle * Constants.RAD_TO_DEG);
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float ToRadians(ref this float angle)
+			public static float AsRadians(in this float angle)
 				=> (angle * Constants.DEG_TO_RAD);
 			
-
-			[Flags]
-			public enum Options
-			{
-				Angle = 1,
-				Hypotenuse = 2,
-				Adjacent = 4,
-				Opposite = 8,
-			}
-
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float GetAngle(in float a, in float b, in (Options a, Options b) config)
-				=> GetAngle((a, b), flags: (config.a | config.b));
+			public static float ToDegrees(ref this float angle)
+				=> (angle *= Constants.RAD_TO_DEG);
 			
-			
-			//done
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float GetAngle(in this (float a, float b) input, in Options flags)
+			public static float ToRadians(ref this float angle)
+				=> (angle *= Constants.DEG_TO_RAD);
+			
+			
+			//TODO: Try to get these to work with Tuples and then as extesnion method.
+			
+			[PublicAPI]
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			public static float GetAngle(in float? opposite = null, in float? adjacent = null, in float? hypotenuse = null)
 			{
-				if (flags.HasFlag(flag: Options.Opposite | Options.Hypotenuse))
+				bool __hasOpposite   = (opposite != null);
+				bool __hasAdjacent   = (adjacent != null);
+				bool __hasHypotenuse = (hypotenuse != null);
+
+				if (__hasOpposite && __hasHypotenuse)
 				{
-					Debug.Log("A - 1");
-					return Asin(input.a / input.b).ClampNeg1To1();
-				}
-				if (flags.HasFlag(flag: Options.Adjacent | Options.Hypotenuse))
-				{
-					Debug.Log("B - 2");
-					return Acos(input.a / input.b).ClampNeg1To1();
-				}
-				if (flags.HasFlag(flag: Options.Opposite | Options.Adjacent))
-				{
-					Debug.Log("C - 3");
-					return Atan(input.a / input.b);
+					return Asin(opposite / hypotenuse).ClampNeg1To1();
 				}
 
-				Debug.Log("D - ERROR");
+				if (__hasAdjacent && __hasHypotenuse)
+				{
+					return Acos(adjacent / hypotenuse).ClampNeg1To1();
+				}
+
+				if (__hasOpposite && __hasAdjacent)
+				{
+					return Atan(opposite / adjacent);
+				}
+				
 				//TODO: Error
 				return 0;
 			}
@@ -80,20 +86,27 @@ namespace CGTK.Utilities.Extensions
 			//done
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float GetHypotenuse(in this (float a, float b) input, in Options flags)
+			public static float GetHypotenuse(in float? opposite = null, in float? adjacent = null, in float? angle = null)
 			{
-				if (flags.HasFlag(flag: Options.Angle | Options.Adjacent))
+				bool __hasOpposite = (opposite != null);
+				bool __hasAdjacent = (adjacent != null);
+				bool __hasAngle    = (angle != null);
+
+				if (__hasOpposite && __hasAdjacent)
 				{
-					return (input.b / Cos(input.a));
+					return Sqrt(adjacent.Squared() + opposite.Squared());
 				}
-				if (flags.HasFlag(flag: Options.Angle | Options.Opposite))
+				
+				if (__hasAngle && __hasAdjacent)
 				{
-					return (input.b / Sin(input.a));
+					return (float)(adjacent / Cos(angle));
 				}
-				if (flags.HasFlag(flag: Options.Opposite | Options.Adjacent))
+
+				if (__hasAngle && __hasOpposite)
 				{
-					return Sqrt(input.b.Square() + input.a.Square());
+					return (float)(opposite / Sin(angle));
 				}
+
 
 				//TODO: Error
 				return 0;
@@ -102,19 +115,29 @@ namespace CGTK.Utilities.Extensions
 			//done
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float GetAdjacent(in this (float a, float b) input, in Options flags)
+			public static float GetAdjacent(in float? opposite = null, in float? hypotenuse = null, in float? angle = null)
 			{
-				if (flags.HasFlag(flag: Options.Angle | Options.Opposite))
+				bool __hasOpposite   = (opposite != null);
+				bool __hasHypotenuse = (hypotenuse != null);
+				bool __hasAngle      = (angle != null);
+
+				if (__hasOpposite && __hasHypotenuse)
 				{
-					return (input.b / Tan(input.a));
+					float __result = (opposite.Squared() - hypotenuse.Squared()).Sqrt();
+
+					__result += 1;
+
+					return __result;
 				}
-				if (flags.HasFlag(flag: Options.Angle | Options.Hypotenuse))
+				
+				if (__hasAngle && __hasOpposite)
 				{
-					return (Cos(input.a) * input.b);
+					return (float)(opposite / Tan(angle));
 				}
-				if (flags.HasFlag(flag: Options.Opposite | Options.Hypotenuse))
+
+				if (__hasAngle && __hasHypotenuse)
 				{
-					return Sqrt(value: input.b.Square() - input.a.Square());
+					return (float)(Cos(angle) * hypotenuse);
 				}
 
 				//TODO: Error
@@ -123,19 +146,25 @@ namespace CGTK.Utilities.Extensions
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float GetOpposite(in this (float a, float b) input, in Options flags)
+			public static float GetOpposite(in float? adjacent = null, in float? hypotenuse = null, in float? angle = null)
 			{
-				if (flags.HasFlag(flag: Options.Angle | Options.Adjacent))
+				bool __hasAdjacent   = (adjacent != null);
+				bool __hasHypotenuse = (hypotenuse != null);
+				bool __hasAngle      = (angle != null);
+
+				if (__hasAngle && __hasAdjacent)
 				{
-					return (Tan(input.a) * input.b);
+					return (float)(Tan(angle) * adjacent);
 				}
-				if (flags.HasFlag(flag: Options.Angle | Options.Hypotenuse))
+
+				if (__hasAngle && __hasHypotenuse)
 				{
-					return (Sin(input.a) * input.b);
+					return (float)(Sin(angle) * hypotenuse);
 				}
-				if (flags.HasFlag(flag: Options.Adjacent | Options.Hypotenuse))
+
+				if (__hasAdjacent && __hasHypotenuse)
 				{
-					return Sqrt(value: input.b.Square() - input.a.Square());
+					return Sqrt(hypotenuse.Squared() - adjacent.Squared());
 				}
 
 				//TODO: Error
