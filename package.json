@@ -1,9 +1,9 @@
 {
   "name": "com.common-games.utilities.extensions",
-  "displayName": "Utilities.Extensions",
+  "displayName": "CGTK.Utilities.Extensions",
   "version": "0.0.0",
   "unity": "2020.3",
-  "description": "Useful set of Unity-specific C# Extensions",
+  "description": "Set of useful Unity-specific C# extensions.",
   "keywords": [
     "unity",
     "unity3d",
@@ -23,5 +23,6 @@
   "author": "Common-Games (https://www.Common-Games.com)",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "type": "library"
 }
