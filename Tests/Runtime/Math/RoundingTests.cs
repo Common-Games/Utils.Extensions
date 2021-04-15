@@ -1,6 +1,7 @@
 using System.Collections;
 
 using NUnit.Framework;
+using Unity.PerformanceTesting;
 
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -13,8 +14,8 @@ namespace CGTK.Utilities.Extensions
 		{
 			#region Built-in
 
-			[UnityTest]
-			public IEnumerator Rounding_Float_Round()
+			[Test]
+			public void Rounding_Float_Round()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -31,15 +32,15 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 0, actual: __resultA);
 				Assert.AreEqual(expected: 1, actual: __resultB);
 				Assert.AreEqual(expected: 2, actual: __resultC);
 				Assert.AreEqual(expected: -1, actual: __resultD);
 			}
-			[UnityTest]
-			public IEnumerator Rounding_Float_RoundToInt()
+			[Test]
+			public void Rounding_Float_RoundToInt()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -56,16 +57,16 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 0, actual: __resultA);
 				Assert.AreEqual(expected: 1, actual: __resultB);
 				Assert.AreEqual(expected: 2, actual: __resultC);
 				Assert.AreEqual(expected: -1, actual: __resultD);
 			}
-			
-			[UnityTest]
-			public IEnumerator Rounding_Float_Ceil()
+
+			[Test]
+			public void Rounding_Float_Ceil()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -82,15 +83,15 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 1, actual: __resultA);
 				Assert.AreEqual(expected: 1, actual: __resultB);
 				Assert.AreEqual(expected: 3, actual: __resultC);
 				Assert.AreEqual(expected: -1, actual: __resultD);
 			}
-			[UnityTest]
-			public IEnumerator Rounding_Float_CeilToInt()
+			[Test]
+			public void Rounding_Float_CeilToInt()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -107,7 +108,7 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 1, actual: __resultA);
 				Assert.AreEqual(expected: 1, actual: __resultB);
@@ -115,8 +116,8 @@ namespace CGTK.Utilities.Extensions
 				Assert.AreEqual(expected: -1, actual: __resultD);
 			}
 			
-			[UnityTest]
-			public IEnumerator Rounding_Float_Floor()
+			[Test]
+			public void Rounding_Float_Floor()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -133,15 +134,15 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 0, actual: __resultA);
 				Assert.AreEqual(expected: 0, actual: __resultB);
 				Assert.AreEqual(expected: 2, actual: __resultC);
 				Assert.AreEqual(expected: -2, actual: __resultD);
 			}
-			[UnityTest]
-			public IEnumerator Rounding_Float_FloorToInt()
+			[Test]
+			public void Rounding_Float_FloorToInt()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -158,7 +159,7 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 0, actual: __resultA);
 				Assert.AreEqual(expected: 0, actual: __resultB);
@@ -170,8 +171,8 @@ namespace CGTK.Utilities.Extensions
 
 			#region With Mode
 
-			[UnityTest]
-			public IEnumerator Rounding_Float_Round_Mode_Nearest()
+			[Test]
+			public void Rounding_Float_Round_Mode_Nearest()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -188,15 +189,15 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 0, actual: __resultA);
 				Assert.AreEqual(expected: 1, actual: __resultB);
 				Assert.AreEqual(expected: 2, actual: __resultC);
 				Assert.AreEqual(expected: -1, actual: __resultD);
 			}
-			[UnityTest]
-			public IEnumerator Rounding_Float_RoundToInt_Mode_Nearest()
+			[Test]
+			public void Rounding_Float_RoundToInt_Mode_Nearest()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -213,7 +214,7 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 0, actual: __resultA);
 				Assert.AreEqual(expected: 1, actual: __resultB);
@@ -221,8 +222,8 @@ namespace CGTK.Utilities.Extensions
 				Assert.AreEqual(expected: -1, actual: __resultD);
 			}
 			
-			[UnityTest]
-			public IEnumerator Rounding_Float_Round_Mode_Up()
+			[Test]
+			public void Rounding_Float_Round_Mode_Up()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -239,15 +240,15 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 1, actual: __resultA);
 				Assert.AreEqual(expected: 1, actual: __resultB);
 				Assert.AreEqual(expected: 3, actual: __resultC);
 				Assert.AreEqual(expected: -1, actual: __resultD);
 			}
-			[UnityTest]
-			public IEnumerator Rounding_Float_RoundToInt_Mode_Up()
+			[Test]
+			public void Rounding_Float_RoundToInt_Mode_Up()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -264,7 +265,7 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 1, actual: __resultA);
 				Assert.AreEqual(expected: 1, actual: __resultB);
@@ -273,8 +274,8 @@ namespace CGTK.Utilities.Extensions
 			}
 			
 			
-			[UnityTest]
-			public IEnumerator Rounding_Float_Round_Mode_Down()
+			[Test]
+			public void Rounding_Float_Round_Mode_Down()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -291,15 +292,15 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 0, actual: __resultA);
 				Assert.AreEqual(expected: 0, actual: __resultB);
 				Assert.AreEqual(expected: 2, actual: __resultC);
 				Assert.AreEqual(expected: -2, actual: __resultD);
 			}
-			[UnityTest]
-			public IEnumerator Rounding_Float_RoundToInt_Mode_Down()
+			[Test]
+			public void Rounding_Float_RoundToInt_Mode_Down()
 			{
 				const float __A = 0.45f;
 				const float __B = 0.5642f;
@@ -316,7 +317,7 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"C = {__resultC}");
 				Debug.Log(message: $"D = {__resultD}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(expected: 0, actual: __resultA);
 				Assert.AreEqual(expected: 0, actual: __resultB);
@@ -328,8 +329,8 @@ namespace CGTK.Utilities.Extensions
 
 			#region PowerOfTwo
 
-			[UnityTest]
-			public IEnumerator Rounding_Float_PowerOfTwo_Closest()
+			[Test]
+			public void Rounding_Float_PowerOfTwo_Closest()
 			{
 				const float __A = 7.1f;
 				const float __B = 139.3f;
@@ -355,7 +356,7 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
 				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(actual: __resultA, expected: 8);
 				Assert.AreEqual(actual: __resultB, expected: 128);
@@ -366,8 +367,8 @@ namespace CGTK.Utilities.Extensions
 				Assert.AreEqual(actual: __resultG, expected: 0);
 			}
 			
-			[UnityTest]
-			public IEnumerator Rounding_Float_PowerOfTwo_Next()
+			[Test]
+			public void Rounding_Float_PowerOfTwo_Next()
 			{
 				const float __A = 7.1f;
 				const float __B = 139.3f;
@@ -393,7 +394,7 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
 				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(actual: __resultA, expected: 8);
 				Assert.AreEqual(actual: __resultB, expected: 256);
@@ -404,8 +405,8 @@ namespace CGTK.Utilities.Extensions
 				Assert.AreEqual(actual: __resultG, expected: 0);
 			}
 			
-			[UnityTest]
-			public IEnumerator Rounding_Float_PowerOfTwo_Previous()
+			[Test]
+			public void Rounding_Float_PowerOfTwo_Previous()
 			{
 				const float __A = 7.1f;
 				const float __B = 139.3f;
@@ -431,7 +432,7 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
 				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(actual: __resultA, expected: 4);
 				Assert.AreEqual(actual: __resultB, expected: 128);
@@ -443,8 +444,8 @@ namespace CGTK.Utilities.Extensions
 			}
 			
 			
-			[UnityTest]
-			public IEnumerator Rounding_Float_PowerOfTwo_Mode_Nearest()
+			[Test]
+			public void Rounding_Float_PowerOfTwo_Mode_Nearest()
 			{
 				const float __A = 7.1f;
 				const float __B = 139.3f;
@@ -470,7 +471,7 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
 				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(actual: __resultA, expected: 8);
 				Assert.AreEqual(actual: __resultB, expected: 128);
@@ -481,8 +482,8 @@ namespace CGTK.Utilities.Extensions
 				Assert.AreEqual(actual: __resultG, expected: 0);
 			}
 			
-			[UnityTest]
-			public IEnumerator Rounding_Float_PowerOfTwo_Mode_Up()
+			[Test]
+			public void Rounding_Float_PowerOfTwo_Mode_Up()
 			{
 				const float __A = 7.1f;
 				const float __B = 139.3f;
@@ -508,7 +509,7 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
 				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(actual: __resultA, expected: 8);
 				Assert.AreEqual(actual: __resultB, expected: 256);
@@ -519,8 +520,8 @@ namespace CGTK.Utilities.Extensions
 				Assert.AreEqual(actual: __resultG, expected: 0);
 			}
 			
-			[UnityTest]
-			public IEnumerator Rounding_Float_PowerOfTwo_Mode_Down()
+			[Test]
+			public void Rounding_Float_PowerOfTwo_Mode_Down()
 			{
 				const float __A = 7.1f;
 				const float __B = 139.3f;
@@ -546,7 +547,7 @@ namespace CGTK.Utilities.Extensions
 				Debug.Log(message: $"F = Input: {__F}, Output: {__resultF}");
 				Debug.Log(message: $"F = Input: {__G}, Output: {__resultG}");
 
-				yield return null;
+				//yield return null;
 
 				Assert.AreEqual(actual: __resultA, expected: 4);
 				Assert.AreEqual(actual: __resultB, expected: 128);

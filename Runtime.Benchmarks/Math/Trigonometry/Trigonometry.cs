@@ -6,40 +6,21 @@ namespace CGTK.Utilities.Extensions
 {
 	namespace Math
 	{
-		public sealed class TrigTests
+		public sealed partial class TrigonometryBenchmarks
 		{
-			private const int _MEASURE_COUNT = 20, _ITERATIONS = 10_000;
-			
-			/*
-			[Test, Performance]
-			public void TestNormalSqrt()
-			{
-				Measure.Method(() =>
-					{
-						//for (int __index = 0; __index < _ITERATIONS; __index++)
-						float __result = Mathf.Sqrt(0.54f);
-					})
-					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
-					.Run();
-			}
-			*/
-
 			[Test, Performance]
 			public void Sqrt()
 			{
 				Measure.Method(() =>
 					{
-						//for (int __index = 0; __index < _ITERATIONS; __index++)
 						float __result = 0.54f.Sqrt();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-			
+
 			[Test, Performance]
 			public void Sqrt_Fast()
 			{
@@ -48,26 +29,25 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.SqrtFast();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-			
-			
+
+
 			[Test, Performance]
 			public void Power()
 			{
 				Measure.Method(() =>
 					{
-						//for (int __index = 0; __index < _ITERATIONS; __index++)
 						float __result = 0.54f.Pow(4);
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-			
+
 			[Test, Performance]
 			public void Squared()
 			{
@@ -76,11 +56,11 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.Squared();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-			
+
 			[Test, Performance]
 			public void Cubed()
 			{
@@ -89,12 +69,12 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.Cubed();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-			
-			
+
+
 
 			[Test, Performance]
 			public void Sin()
@@ -104,8 +84,8 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.Sin();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
@@ -117,11 +97,11 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.SinFast();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-			
+
 			[Test, Performance]
 			public void Asin()
 			{
@@ -130,8 +110,8 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.Asin();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
@@ -143,12 +123,12 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.AsinFast();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
-			
+
 			[Test, Performance]
 			public void Cos()
 			{
@@ -157,8 +137,8 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.Cos();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
@@ -170,11 +150,11 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.CosFast();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-			
+
 			[Test, Performance]
 			public void Acos()
 			{
@@ -183,8 +163,8 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.Acos();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
@@ -196,12 +176,12 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.AcosFast();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-			
-			
+
+
 			[Test, Performance]
 			public void Tan()
 			{
@@ -210,8 +190,8 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.Tan();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
@@ -223,11 +203,11 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.TanFast();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-			
+
 			[Test, Performance]
 			public void Atan()
 			{
@@ -236,8 +216,8 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.Atan();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
@@ -249,15 +229,15 @@ namespace CGTK.Utilities.Extensions
 						float __result = 0.54f.AtanFast();
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
 			#region Distance
 
 			private readonly Vector3 _posA = Vector3.zero, _posB = new Vector3(15, 2, -34);
-			
+
 			[Test, Performance]
 			public void SqrDistance()
 			{
@@ -266,11 +246,11 @@ namespace CGTK.Utilities.Extensions
 						float __distance = _posA.SqrDistance(_posB);
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-			
+
 			[Test, Performance]
 			public void Distance()
 			{
@@ -279,13 +259,13 @@ namespace CGTK.Utilities.Extensions
 						float __distance = _posA.Distance(to: _posB);
 					})
 					.WarmupCount(5)
-					.IterationsPerMeasurement(_ITERATIONS)
-					.MeasurementCount(_MEASURE_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
 			#endregion
-			
+
 		}
 	}
 }

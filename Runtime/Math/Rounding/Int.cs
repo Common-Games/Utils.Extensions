@@ -25,11 +25,8 @@ namespace CGTK.Utilities.Extensions
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static int PreviousPowerOfTwo(this int value)
 			{
-				if (value == 0) 
-				{
-					return 0;
-				}
-				
+				if (value == 0) return 0;
+
 				value |= (value >> 1);
 				value |= (value >> 2);
 				value |= (value >> 4);

@@ -17,6 +17,11 @@ namespace CGTK.Utilities.Extensions
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static float Pow(in this float value, in float power) 
 				=> (float)System.Math.Pow(value, power);
+			
+			[PublicAPI]
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			public static float Pow(in this int value, in float power) 
+				=> (float)System.Math.Pow(value, power);
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]

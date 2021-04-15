@@ -52,6 +52,11 @@ namespace CGTK.Utilities.Extensions
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			public static float Round2(this float value)
+				=> (float)System.Math.Round(value);
+			
+			[PublicAPI]
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static int RoundToInt(this float value)
 				=> Mathf.RoundToInt(f: value);
 
@@ -107,14 +112,14 @@ namespace CGTK.Utilities.Extensions
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static int ToPowerOfTwo(this float value, in Mode roundingMode)
+			public static int ToPowerOfTwo(this float value, in Mode mode)
 			{
-				return roundingMode switch
+				return mode switch
 				{
 					Mode.Nearest => ClosestPowerOfTwo(value),
 					Mode.Down    => PreviousPowerOfTwo(value),
 					Mode.Up      => NextPowerOfTwo(value),
-					_ => throw new ArgumentOutOfRangeException(nameof(roundingMode), roundingMode, null)
+					_ => throw new ArgumentOutOfRangeException(nameof(mode), mode, null)
 				};
 			}
 

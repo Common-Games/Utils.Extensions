@@ -1,6 +1,6 @@
 {
   "name": "com.common-games.utilities.extensions",
-  "displayName": "Utilities.Extensions",
+  "displayName": "CGTK.Utilities.Extensions",
   "version": "0.0.0",
   "unity": "2020.3",
   "description": "Set of useful Unity-specific C# extensions.",

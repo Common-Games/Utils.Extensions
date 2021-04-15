@@ -1,7 +1,15 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
+using Unity.Burst;
+using Unity.Burst.Intrinsics;
+using static Unity.Burst.Intrinsics.X86.Sse;
+using static Unity.Burst.Intrinsics.X86.Sse2;
+using static Unity.Burst.Intrinsics.X86.Sse3;
+using static Unity.Burst.Intrinsics.Common;
+
 using JetBrains.Annotations;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace CGTK.Utilities.Extensions
@@ -128,6 +136,16 @@ namespace CGTK.Utilities.Extensions
 				__union.Int = 0x2035AD0C + (*(int*)(&value) >> 1);
 				
 				return value / __union.Float + __union.Float * 0.25f;
+			}
+
+			[BurstCompile]
+			[PublicAPI]
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			public static float SqrtSlow(in this float value)
+			{
+				v128 __reg = set_ps1(value);
+
+				return cvtss_f32(rcp_ss(rsqrt_ss(__reg)));
 			}
 		}
 	}
