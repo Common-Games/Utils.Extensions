@@ -1,3 +1,4 @@
+using System;
 using System.Runtime.CompilerServices;
 
 using JetBrains.Annotations;
@@ -6,18 +7,31 @@ using UnityEngine;
 
 namespace CGTK.Utilities.Extensions
 {
+	using F32 = Single;
+	using F64 = Double;
+
+	using I8  = SByte;
+	using I16 = Int16;
+	using I32 = Int32;
+	using I64 = Int64;
+
+	using U8  = Byte;
+	using U16 = UInt16;
+	using U32 = UInt32;
+	using U64 = UInt64;
+
 	namespace Math
 	{
 		public static partial class Trigonometry
 		{
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float SqrDistance(in this Vector3 from, in Vector3 to)
+			public static F32 SqrDistance(in this Vector3 from, in Vector3 to)
 				=> (to - from).sqrMagnitude;
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float SqrDistance(this Transform from, in Transform to)
+			public static F32 SqrDistance(this Transform from, in Transform to)
 				=> (to.position - from.position).sqrMagnitude;
 			
 			/// <summary>
@@ -25,32 +39,32 @@ namespace CGTK.Utilities.Extensions
 			/// </summary>
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float Distance(in this Vector3 from, in Vector3 to)
+			public static F32 Distance(in this Vector3 from, in Vector3 to)
 				=> (to - from).magnitude;
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float Distance(this Transform from, in Transform to)
+			public static F32 Distance(this Transform from, in Transform to)
 				=> (to.position - from.position).magnitude;
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float AsDegrees(in this float angle)
+			public static F32 AsDegrees(in this F32 angle)
 				=> (angle * Constants.RAD_TO_DEG);
-			
+
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float AsRadians(in this float angle)
+			public static F32 AsRadians(in this F32 angle)
 				=> (angle * Constants.DEG_TO_RAD);
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float ToDegrees(ref this float angle)
+			public static F32 ToDegrees(ref this F32 angle)
 				=> (angle *= Constants.RAD_TO_DEG);
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float ToRadians(ref this float angle)
+			public static F32 ToRadians(ref this F32 angle)
 				=> (angle *= Constants.DEG_TO_RAD);
 			
 			
@@ -58,11 +72,11 @@ namespace CGTK.Utilities.Extensions
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float GetAngle(in float? opposite = null, in float? adjacent = null, in float? hypotenuse = null)
+			public static F32 GetAngle(in F32? opposite = null, in F32? adjacent = null, in F32? hypotenuse = null)
 			{
-				bool __hasOpposite   = (opposite != null);
-				bool __hasAdjacent   = (adjacent != null);
-				bool __hasHypotenuse = (hypotenuse != null);
+				Boolean __hasOpposite   = (opposite != null);
+				Boolean __hasAdjacent   = (adjacent != null);
+				Boolean __hasHypotenuse = (hypotenuse != null);
 
 				if (__hasOpposite && __hasHypotenuse)
 				{
@@ -86,11 +100,11 @@ namespace CGTK.Utilities.Extensions
 			//done
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float GetHypotenuse(in float? opposite = null, in float? adjacent = null, in float? angle = null)
+			public static F32 GetHypotenuse(in F32? opposite = null, in F32? adjacent = null, in F32? angle = null)
 			{
-				bool __hasOpposite = (opposite != null);
-				bool __hasAdjacent = (adjacent != null);
-				bool __hasAngle    = (angle != null);
+				Boolean __hasOpposite = (opposite != null);
+				Boolean __hasAdjacent = (adjacent != null);
+				Boolean __hasAngle    = (angle != null);
 
 				if (__hasOpposite && __hasAdjacent)
 				{
@@ -99,12 +113,12 @@ namespace CGTK.Utilities.Extensions
 				
 				if (__hasAngle && __hasAdjacent)
 				{
-					return (float)(adjacent / Cos(angle));
+					return (F32)(adjacent / Cos(angle));
 				}
 
 				if (__hasAngle && __hasOpposite)
 				{
-					return (float)(opposite / Sin(angle));
+					return (F32)(opposite / Sin(angle));
 				}
 
 
@@ -115,15 +129,15 @@ namespace CGTK.Utilities.Extensions
 			//done
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float GetAdjacent(in float? opposite = null, in float? hypotenuse = null, in float? angle = null)
+			public static F32 GetAdjacent(in F32? opposite = null, in F32? hypotenuse = null, in F32? angle = null)
 			{
-				bool __hasOpposite   = (opposite != null);
-				bool __hasHypotenuse = (hypotenuse != null);
-				bool __hasAngle      = (angle != null);
+				Boolean __hasOpposite   = (opposite != null);
+				Boolean __hasHypotenuse = (hypotenuse != null);
+				Boolean __hasAngle      = (angle != null);
 
 				if (__hasOpposite && __hasHypotenuse)
 				{
-					float __result = (opposite.Squared() - hypotenuse.Squared()).Sqrt();
+					F32 __result = (opposite.Squared() - hypotenuse.Squared()).Sqrt();
 
 					__result += 1;
 
@@ -132,12 +146,12 @@ namespace CGTK.Utilities.Extensions
 				
 				if (__hasAngle && __hasOpposite)
 				{
-					return (float)(opposite / Tan(angle));
+					return (F32)(opposite / Tan(angle));
 				}
 
 				if (__hasAngle && __hasHypotenuse)
 				{
-					return (float)(Cos(angle) * hypotenuse);
+					return (F32)(Cos(angle) * hypotenuse);
 				}
 
 				//TODO: Error
@@ -146,20 +160,20 @@ namespace CGTK.Utilities.Extensions
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static float GetOpposite(in float? adjacent = null, in float? hypotenuse = null, in float? angle = null)
+			public static F32 GetOpposite(in F32? adjacent = null, in F32? hypotenuse = null, in F32? angle = null)
 			{
-				bool __hasAdjacent   = (adjacent != null);
-				bool __hasHypotenuse = (hypotenuse != null);
-				bool __hasAngle      = (angle != null);
+				Boolean __hasAdjacent   = (adjacent != null);
+				Boolean __hasHypotenuse = (hypotenuse != null);
+				Boolean __hasAngle      = (angle != null);
 
 				if (__hasAngle && __hasAdjacent)
 				{
-					return (float)(Tan(angle) * adjacent);
+					return (F32)(Tan(angle) * adjacent);
 				}
 
 				if (__hasAngle && __hasHypotenuse)
 				{
-					return (float)(Sin(angle) * hypotenuse);
+					return (F32)(Sin(angle) * hypotenuse);
 				}
 
 				if (__hasAdjacent && __hasHypotenuse)
