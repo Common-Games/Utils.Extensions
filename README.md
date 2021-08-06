@@ -1,74 +1,67 @@
-[![npm package](https://img.shields.io/npm/v/com.common-games.utilities.extensions)](https://www.npmjs.com/package/com.common-games.utilities.extensions)
-[![openupm](https://img.shields.io/npm/v/com.common-games.utilities.extensions?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.common-games.utilities.extensions/)
-![Tests](https://github.com/common-games/utilities.extensions/workflows/Tests/badge.svg)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+# Utilities.Extensions
 
-# Extensions
+![Version](https://img.shields.io/github/package-json/v/Walter-Hulsebos/Utilities.Extensions?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/Walter-Hulsebos/Utilities.Extensions?color=orange&style=for-the-badge)
+[![Discord](https://img.shields.io/discord/763171539763462144?color=%237289DA&label=discord&logo=discord&style=for-the-badge)](https://discord.gg/S9wHQ96)
+![Build](https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge)
 
-Useful set of Unity-specific C# Extensions
+Our set of shared extension methods / static utility methods.
 
-- [How to use](#how-to-use)
-- [Install](#install)
-  - [via npm](#via-npm)
-  - [via OpenUPM](#via-openupm)
-  - [via Git URL](#via-git-url)
-  - [Tests](#tests)
-- [Configuration](#configuration)
+For now it's mostly meant for in-house, as a dependency, however, this will change later on.
+There are many Unit Tests/Benchmarks I have to create and lots of docs to do for this one.
+
+<br>Part of the **CGTK** Framework for Unity.
 
 <!-- toc -->
+<div align="center">
 
-## How to use
+[**Requirements**](#Requirements) 
+&middot;
+[**Installation**](#Installation) 
+&middot;
+[**Documentation**](#Documentation) 
+&middot;
+[**License**](./LICENSE.md)
 
-*Work In Progress*
+</div>
+<!-- tocstop -->
 
-## Install
+[![Paypal](https://img.shields.io/badge/sponsor_the_project-donate-E12C9A.svg?style=for-the-badge)](https://paypal.me/walthaynes)
+[![Ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/walterhulsebos)
 
-### via npm
 
-Open `Packages/manifest.json` with your favorite text editor. Add a [scoped registry](https://docs.unity3d.com/Manual/upm-scoped.html) and following line to dependencies block:
-```json
-{
-  "scopedRegistries": [
-    {
-      "name": "npmjs",
-      "url": "https://registry.npmjs.org/",
-      "scopes": [
-        "com.common-games"
-      ]
-    }
-  ],
-  "dependencies": {
-    "com.common-games.utilities.extensions": "1.0.0"
-  }
-}
-```
-Package should now appear in package manager.
+Hiya! We're **Common Games**, thanks for checking out **CGTK**!
+<br> 
+When using any of our packages, please make sure to **Star** 🌟 the repositories you're using.
+<br>
+Giving credit to *Walter Hulsebos* somewhere in your app/game would also be greatly appreciated!
+<br> 
+Thank you!
 
-### via OpenUPM
+<div align="center"> <b>Made with 💖 by Walter H.</b> </div>
 
-The package is also available on the [openupm registry](https://openupm.com/packages/com.common-games.utilities.extensions). You can install it eg. via [openupm-cli](https://github.com/openupm/openupm-cli).
+# Requirements
 
-```
-openupm add com.common-games.utilities.extensions
-```
+- **Unity 2020.3**
+- The **Unity Test Framework** Package
 
-### via Git URL
+# Installation
 
-Open `Packages/manifest.json` with your favorite text editor. Add following line to the dependencies block:
-```json
-{
-  "dependencies": {
-    "com.common-games.utilities.extensions": "https://github.com/common-games/utilities.extensions.git"
-  }
-}
-```
+#### Install the latest *stable release* by following these steps:
+
+1. Click on **Window/Package Manager**.
+2. Click on the little + icon.
+3. Click on button that says **Add Package from git URL**.
+4. Put in `https://github.com/Walter-Hulsebos/Utilities.Extensions.git`
+
+And you're done! ;-)
 
 ### Tests
 
 The package can optionally be set as *testable*.
-In practice this means that tests in the package will be visible in the [Unity Test Runner](https://docs.unity3d.com/2017.4/Documentation/Manual/testing-editortestsrunner.html).
+This means that the tests from the package will be visible in the [Unity Test Runner](https://docs.unity3d.com/2017.4/Documentation/Manual/testing-editortestsrunner.html).
 
-Open `Packages/manifest.json` with your favorite text editor. Add following line **after** the dependencies block:
+Open your project's `Packages/manifest.json` with your favorite text editor. Add following line **after** the dependencies block:
 ```json
 {
   "dependencies": {
@@ -77,12 +70,26 @@ Open `Packages/manifest.json` with your favorite text editor. Add following line
 }
 ```
 
-## Configuration
+# Documentation
+
+Every bit of *public* API on the master branch of this package has been unit-tested and benchmarked.
+But you should also run all unit tests yourself as they are included. 
+We can never know if you have all the dependencies, your target platform, or your Unity version. 
+
+The documentation is separated into these parts; 
+- [Examples](#examples)
+- [Overview API](#overview-api).
+
+## Examples
 
 *Work In Progress*
 
-## License
+## Overview API
 
-MIT License
+*Work In Progress*
 
-Copyright © 2021 Common-Games
+# License
+
+Licensed under [**The Unlicense**](./LICENSE.md)
+
+Copyright © 2021 Walter Hulsebos
