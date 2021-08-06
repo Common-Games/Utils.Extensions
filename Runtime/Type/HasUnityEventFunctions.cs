@@ -10,6 +10,6 @@ namespace CGTK.Utilities.Extensions
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Boolean HasUnityEventFunctions(this Type type)
-	        => (type is null) || (type.IsSubclassOf(c: typeof(MonoBehaviour)) || type.IsSubclassOf(c: typeof(ScriptableObject)));
+	        => (type == null) || (type.IsSubclassOf(c: typeof(MonoBehaviour)) || type.IsSubclassOf(c: typeof(ScriptableObject)));
 	}
 }

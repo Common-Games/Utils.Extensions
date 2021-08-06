@@ -18,7 +18,7 @@ namespace CGTK.Utilities.Extensions
         {
             customAttribute = (T)element.GetCustomAttribute(attributeType: typeof(T));
 
-            return (customAttribute is not null);
+            return (customAttribute == null);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -31,7 +31,7 @@ namespace CGTK.Utilities.Extensions
         {
             fieldInfo = target.AllFields(field => field.Name.Equals(fieldName, StringComparison.Ordinal)).FirstOrDefault();
 
-            return (fieldInfo is not null);
+            return (fieldInfo == null);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -39,7 +39,7 @@ namespace CGTK.Utilities.Extensions
         {
             propertyInfo = target.AllProperties(property => property.Name.Equals(propertyName, StringComparison.Ordinal)).FirstOrDefault();
 
-            return (propertyInfo is not null);
+            return (propertyInfo == null);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -47,7 +47,7 @@ namespace CGTK.Utilities.Extensions
         {
             methodInfo = target.AllMethods(method => method.Name.Equals(methodName, StringComparison.Ordinal)).FirstOrDefault();
 
-            return (methodInfo is not null);
+            return (methodInfo == null);
         }
 		    
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -55,7 +55,7 @@ namespace CGTK.Utilities.Extensions
         {
             memberInfo = target.AllMembers(member => member.Name.Equals(memberName, StringComparison.Ordinal)).FirstOrDefault();
 
-            return (memberInfo is not null);
+            return (memberInfo == null);
         }
         
         
@@ -80,7 +80,7 @@ namespace CGTK.Utilities.Extensions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static IEnumerable<T> GetAll<T>(System.Object target, Func<Type, IEnumerable<T>> getMembersFn)
         {
-            if (target is null)
+            if (target == null)
             {
                 Debug.LogError(message: "The target object is null.");
                 yield break;
@@ -108,7 +108,7 @@ namespace CGTK.Utilities.Extensions
                 input.GetType()
             };
 
-            while (__types.Last().BaseType is not null)
+            while (__types.Last().BaseType == null)
             {
                 __types.Add(item: __types.Last().BaseType);
             }
