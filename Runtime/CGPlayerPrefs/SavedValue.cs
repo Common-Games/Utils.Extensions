@@ -9,7 +9,7 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
     /// 
     /// <typeparam name="T"> Type of the saved value. </typeparam>
     [PublicAPI]
-    public abstract class Saved<T> : ISavedValue<T>
+    public abstract class SavedValue<T> : ISavedValue<T>
     {
         #region Fields & Properties
 
@@ -47,7 +47,7 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
 
         #region Structors
         
-        public Saved(in String key, in T defaultValue = default)
+        public SavedValue(in String key, in T defaultValue = default)
         {
             this.Key = key;
             this.DefaultValue = defaultValue;
