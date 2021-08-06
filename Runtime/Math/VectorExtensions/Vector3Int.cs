@@ -1,9 +1,9 @@
 using System;
 using System.Runtime.CompilerServices;
 
-using JetBrains.Annotations;
-
 using UnityEngine;
+
+using JetBrains.Annotations;
 
 namespace CGTK.Utilities.Extensions
 {
@@ -22,8 +22,9 @@ namespace CGTK.Utilities.Extensions
 
 	namespace Math
 	{
-		public static partial class Interpolation
+		public static partial class VectorExtensions
 		{
+
 
 		}
 	}

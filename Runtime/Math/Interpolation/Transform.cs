@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Runtime.CompilerServices;
 
 using JetBrains.Annotations;
@@ -24,7 +25,10 @@ namespace CGTK.Utilities.Extensions
 	{
 		public static partial class Interpolation
 		{
-
+			//[PublicAPI]
+			//[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			//public static IEnumerator LerpPosition(this Transform transform, in Vector3 to, in float t)
+			
 		}
 	}
 }

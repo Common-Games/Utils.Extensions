@@ -1,7 +1,8 @@
 using System;
+
 using NUnit.Framework;
+
 using Unity.PerformanceTesting;
-using UnityEngine;
 
 namespace CGTK.Utilities.Extensions
 {
@@ -20,280 +21,231 @@ namespace CGTK.Utilities.Extensions
 
 	namespace Math
 	{
-		public sealed partial class TrigonometryBenchmarks
+		public sealed partial class MiscBenchmarks
 		{
+			#region Sign
+
 			[Test, Performance]
-			public void Sqrt()
+			public void Sign()
 			{
 				Measure.Method(() =>
 					{
-						F32 __result = 0.54f.Sqrt();
+						F32 __result = 0.54f.Sign();
 					})
-					.WarmupCount(5)
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
-			/*
 			[Test, Performance]
-			public void Sqrt_Fast()
+			public void SignA()
 			{
 				Measure.Method(() =>
 					{
-						F32 __result = 0.54f.SqrtFast();
+						F32 __result = 0.54f.SignA();
 					})
-					.WarmupCount(5)
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 			
 			[Test, Performance]
-			public void Sqrt_Slow()
+			public void SignB()
 			{
 				Measure.Method(() =>
 					{
-						F32 __result = 0.54f.SqrtSlow();
+						F32 __result = 0.54f.SignB();
 					})
-					.WarmupCount(5)
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-			*/
-
-
+			
 			[Test, Performance]
-			public void Power()
+			public void SignC()
 			{
 				Measure.Method(() =>
 					{
-						F32 __result = 0.54f.Pow(4);
+						F32 __result = 0.54f.SignC();
 					})
-					.WarmupCount(5)
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
-
+			
 			[Test, Performance]
-			public void Squared()
+			public void SignD()
 			{
 				Measure.Method(() =>
 					{
-						F32 __result = 0.54f.Squared();
+						F32 __result = 0.54f.SignD();
 					})
-					.WarmupCount(5)
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
+			
+			#endregion
+
+			#region Min
 
 			[Test, Performance]
-			public void Cubed()
+			public void Min_Int()
 			{
 				Measure.Method(() =>
 					{
-						F32 __result = 0.54f.Cubed();
+						I32 __result = 2.Min(11);
 					})
-					.WarmupCount(5)
-					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
-					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
-					.Run();
-			}
-
-
-
-			[Test, Performance]
-			public void Sin()
-			{
-				Measure.Method(() =>
-					{
-						F32 __result = 0.54f.Sin();
-					})
-					.WarmupCount(5)
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
 			[Test, Performance]
-			public void Sin_Fast()
+			public void Min_IntTuple()
 			{
 				Measure.Method(() =>
 					{
-						F32 __result = 0.54f.SinFast();
+						I32 __result = (2, 11).Min();
 					})
-					.WarmupCount(5)
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			
+			[Test, Performance]
+			public void Min_Float()
+			{
+				Measure.Method(() =>
+					{
+						F32 __result = 2f.Min(11f);
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
 			[Test, Performance]
-			public void Asin()
+			public void Min_FloatTuple()
 			{
 				Measure.Method(() =>
 					{
-						F32 __result = 0.54f.Asin();
+						F32 __result = (2f, 11f).Min();
 					})
-					.WarmupCount(5)
-					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
-					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
-					.Run();
-			}
-
-			[Test, Performance]
-			public void Asin_Fast()
-			{
-				Measure.Method(() =>
-					{
-						F32 __result = 0.54f.AsinFast();
-					})
-					.WarmupCount(5)
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
 
+			#endregion
+
+			#region Max
+
 			[Test, Performance]
-			public void Cos()
+			public void Max_Int()
 			{
 				Measure.Method(() =>
 					{
-						F32 __result = 0.54f.Cos();
+						I32 __result = 2.Max(11);
 					})
-					.WarmupCount(5)
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
 			[Test, Performance]
-			public void Cos_Fast()
+			public void Max_IntTuple()
 			{
 				Measure.Method(() =>
 					{
-						F32 __result = 0.54f.CosFast();
+						I32 __result = (2, 11).Max();
 					})
-					.WarmupCount(5)
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			
+			
+			[Test, Performance]
+			public void Max_Float()
+			{
+				Measure.Method(() =>
+					{
+						F32 __result = 2f.Max(11f);
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
 			[Test, Performance]
-			public void Acos()
+			public void Max_FloatTuple()
 			{
 				Measure.Method(() =>
 					{
-						F32 __result = 0.54f.Acos();
+						F32 __result = (2f, 11f).Max();
 					})
-					.WarmupCount(5)
-					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
-					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
-					.Run();
-			}
-
-			[Test, Performance]
-			public void Acos_Fast()
-			{
-				Measure.Method(() =>
-					{
-						F32 __result = 0.54f.AcosFast();
-					})
-					.WarmupCount(5)
-					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
-					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
-					.Run();
-			}
-
-
-			[Test, Performance]
-			public void Tan()
-			{
-				Measure.Method(() =>
-					{
-						F32 __result = 0.54f.Tan();
-					})
-					.WarmupCount(5)
-					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
-					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
-					.Run();
-			}
-
-			[Test, Performance]
-			public void Tan_Fast()
-			{
-				Measure.Method(() =>
-					{
-						F32 __result = 0.54f.TanFast();
-					})
-					.WarmupCount(5)
-					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
-					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
-					.Run();
-			}
-
-			[Test, Performance]
-			public void Atan()
-			{
-				Measure.Method(() =>
-					{
-						F32 __result = 0.54f.Atan();
-					})
-					.WarmupCount(5)
-					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
-					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
-					.Run();
-			}
-
-			[Test, Performance]
-			public void Atan_Fast()
-			{
-				Measure.Method(() =>
-					{
-						F32 __result = 0.54f.AtanFast();
-					})
-					.WarmupCount(5)
-					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
-					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
-					.Run();
-			}
-
-			#region Distance
-
-			private readonly Vector3 _posA = Vector3.zero, _posB = new Vector3(15, 2, -34);
-
-			[Test, Performance]
-			public void SqrDistance()
-			{
-				Measure.Method(() =>
-					{
-						F32 __distance = _posA.SqrDistance(_posB);
-					})
-					.WarmupCount(5)
-					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
-					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
-					.Run();
-			}
-
-			[Test, Performance]
-			public void Distance()
-			{
-				Measure.Method(() =>
-					{
-						F32 __distance = _posA.Distance(to: _posB);
-					})
-					.WarmupCount(5)
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
 
 			#endregion
+
+			/*
+			[Test, Performance]
+			public void MinB()
+			{
+				Measure.Method(() =>
+					{
+						int __result = 2.MinB(11);
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			
+			[Test, Performance]
+			public void MinC()
+			{
+				Measure.Method(() =>
+					{
+						int __result = 2.MinC(11);
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			
+			[Test, Performance]
+			public void MinD()
+			{
+				Measure.Method(() =>
+					{
+						int __result = (2, 11).MinD();
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			*/
 
 		}
 	}

@@ -1,10 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using JetBrains.Annotations;
 using UnityEngine;
 
 namespace CGTK.Utilities.Extensions
 {
+ using F32 = Single;
+ using F64 = Double;
+
+ using I8  = SByte;
+ using I16 = Int16;
+ using I32 = Int32;
+ using I64 = Int64;
+
+ using U8  = Byte;
+ using U16 = UInt16;
+ using U32 = UInt32;
+ using U64 = UInt64;
+
     public static class Constants
     {
         /// <summary>
@@ -12,33 +24,33 @@ namespace CGTK.Utilities.Extensions
         /// (circumference / radius)
         /// </summary>
         [PublicAPI]
-        public const float TAU = 6.28318530717959f;
+        public const F32 TAU = 6.28318530717959f;
 
         [PublicAPI]
-        public const float PI = Mathf.PI;
+        public const F32 PI = Mathf.PI;
         
         [PublicAPI]
-        public const float PI_HALF = (PI * 0.5f);
+        public const F32 PI_HALF = (PI * 0.5f);
         
         /// <summary>
         /// Use this to convert from Degrees to Radians.
         /// (TAU / 360) or (PI / 180)
         /// </summary>
         [PublicAPI]
-        public const float DEG_TO_RAD = (TAU / 360f);
+        public const F32 DEG_TO_RAD = (TAU / 360f);
         
         /// <summary>
         /// Use this to convert from Radians to Degrees.
         /// (360 / TAU) or (180 / PI)
         /// </summary>
         [PublicAPI]
-        public const float RAD_TO_DEG = (360f / TAU);
+        public const F32 RAD_TO_DEG = (360f / TAU);
         
-        public const float INFINITY = Mathf.Infinity;
+        public const F32 INFINITY = Mathf.Infinity;
         
-        public const float NEGATIVE_INFINITY = Mathf.NegativeInfinity;
+        public const F32 NEGATIVE_INFINITY = Mathf.NegativeInfinity;
         
-        public static float EPSILON = Mathf.Epsilon;
+        public static F32 EPSILON = Mathf.Epsilon;
 
 
         /*!
