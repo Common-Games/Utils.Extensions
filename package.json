@@ -1,7 +1,7 @@
 {
   "name": "com.common-games.utilities.extensions",
   "displayName": "CGTK.Utilities.Extensions",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "unity": "2020.3",
   "description": "Set of useful Unity-specific C# extensions.",
   "keywords": [
@@ -27,6 +27,7 @@
   "type": "utility",
   "dependencies": {
     "com.unity.mathematics": "1.2.1",
-    "com.unity.burst": "1.4.1"
+    "com.unity.burst": "1.4.1",
+    "com.unity.test-framework.performance": "1.0.9"
   }
 }
