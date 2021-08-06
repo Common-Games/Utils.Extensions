@@ -1,5 +1,5 @@
 {
-    "name": "Unity.com.common-games.utilities.extensions.Tests",
+    "name": "CGTK.Utilities.Extensions.Runtime.Tests",
     "rootNamespace": "",
     "references": [
         "UnityEngine.TestRunner",
