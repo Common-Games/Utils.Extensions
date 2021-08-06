@@ -15,21 +15,17 @@ namespace CGTK.Utilities.Extensions
 
 	namespace Math
 	{
+		
 		public static partial class VectorExtensions
 		{
-			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static I32[] ToArray(in this int3 self)
-			{
-				I32[] __array = new I32[3];
-
-				__array[0] = self[0];
-				__array[1] = self[1];
-				__array[2] = self[2];
-
-				return __array;
-			}
-
+				=> new I32[3]
+				{
+					self.x,
+					self.y,
+					self.z,
+				};
 		}
 	}
 }

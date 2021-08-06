@@ -17,18 +17,14 @@ namespace CGTK.Utilities.Extensions
 	{
 		public static partial class VectorExtensions
 		{
-			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static F32[] ToArray(in this float3 self)
-			{
-				F32[] __array = new F32[3];
-
-				__array[0] = self[0];
-				__array[1] = self[1];
-				__array[2] = self[2];
-
-				return __array;
-			}
+				=> new F32[3]
+				{
+					self.x,
+					self.y,
+					self.z,
+				};
 
 		}
 	}
