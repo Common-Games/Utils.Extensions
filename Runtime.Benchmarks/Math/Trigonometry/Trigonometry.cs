@@ -1,9 +1,23 @@
+using System;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
 using UnityEngine;
 
 namespace CGTK.Utilities.Extensions
 {
+	using F32 = Single;
+	using F64 = Double;
+
+	using I8  = SByte;
+	using I16 = Int16;
+	using I32 = Int32;
+	using I64 = Int64;
+
+	using U8  = Byte;
+	using U16 = UInt16;
+	using U32 = UInt32;
+	using U64 = UInt64;
+
 	namespace Math
 	{
 		public sealed partial class TrigonometryBenchmarks
@@ -13,7 +27,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.Sqrt();
+						F32 __result = 0.54f.Sqrt();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -21,18 +35,33 @@ namespace CGTK.Utilities.Extensions
 					.Run();
 			}
 
+			/*
 			[Test, Performance]
 			public void Sqrt_Fast()
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.SqrtFast();
+						F32 __result = 0.54f.SqrtFast();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
 					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
 					.Run();
 			}
+			
+			[Test, Performance]
+			public void Sqrt_Slow()
+			{
+				Measure.Method(() =>
+					{
+						F32 __result = 0.54f.SqrtSlow();
+					})
+					.WarmupCount(5)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			*/
 
 
 			[Test, Performance]
@@ -40,7 +69,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.Pow(4);
+						F32 __result = 0.54f.Pow(4);
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -53,7 +82,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.Squared();
+						F32 __result = 0.54f.Squared();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -66,7 +95,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.Cubed();
+						F32 __result = 0.54f.Cubed();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -81,7 +110,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.Sin();
+						F32 __result = 0.54f.Sin();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -94,7 +123,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.SinFast();
+						F32 __result = 0.54f.SinFast();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -107,7 +136,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.Asin();
+						F32 __result = 0.54f.Asin();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -120,7 +149,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.AsinFast();
+						F32 __result = 0.54f.AsinFast();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -134,7 +163,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.Cos();
+						F32 __result = 0.54f.Cos();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -147,7 +176,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.CosFast();
+						F32 __result = 0.54f.CosFast();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -160,7 +189,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.Acos();
+						F32 __result = 0.54f.Acos();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -173,7 +202,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.AcosFast();
+						F32 __result = 0.54f.AcosFast();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -187,7 +216,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.Tan();
+						F32 __result = 0.54f.Tan();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -200,7 +229,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.TanFast();
+						F32 __result = 0.54f.TanFast();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -213,7 +242,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.Atan();
+						F32 __result = 0.54f.Atan();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -226,7 +255,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __result = 0.54f.AtanFast();
+						F32 __result = 0.54f.AtanFast();
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -243,7 +272,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __distance = _posA.SqrDistance(_posB);
+						F32 __distance = _posA.SqrDistance(_posB);
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -256,7 +285,7 @@ namespace CGTK.Utilities.Extensions
 			{
 				Measure.Method(() =>
 					{
-						float __distance = _posA.Distance(to: _posB);
+						F32 __distance = _posA.Distance(to: _posB);
 					})
 					.WarmupCount(5)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
