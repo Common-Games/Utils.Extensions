@@ -49,8 +49,8 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
         
         public SavedValue(in String key, in T defaultValue = default)
         {
-            this.Key = key;
-            this.DefaultValue = defaultValue;
+            Key = key;
+            DefaultValue = defaultValue;
         }
         
         #endregion

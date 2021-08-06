@@ -18,7 +18,7 @@ namespace CGTK.Utilities.Extensions
 		public sealed class CGPlayerPrefsTests
 		{
 			[Test]
-			public void LoadStringArray()
+			public void SaveLoadStringArray()
 			{
 				String[] __array =
 				{
@@ -36,7 +36,7 @@ namespace CGTK.Utilities.Extensions
 			}
 			
 			[Test]
-			public void LoadIntArray()
+			public void SaveLoadIntArray()
 			{
 				I32[] __array =
 				{
@@ -54,7 +54,7 @@ namespace CGTK.Utilities.Extensions
 			}
 			
 			[Test]
-			public void LoadFloatArray()
+			public void SaveLoadFloatArray()
 			{
 				F32[] __array =
 				{
