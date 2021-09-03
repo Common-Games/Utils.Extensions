@@ -1,15 +1,14 @@
 {
-    "name": "CGTK.Utilities.Extensions.Runtime.Benchmarks",
-    "rootNamespace": "CGTK.Utilities.Extensions",
+    "name": "CGTK.Utils.Extensions.Tests",
+    "rootNamespace": "CGTK.Utils.Extensions.Tests",
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Unity.PerformanceTesting",
-        "CGTK.Utilities.Extensions.Runtime"
+        "Unity.Mathematics",
+        "CGTK.Utils.Extensions"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
