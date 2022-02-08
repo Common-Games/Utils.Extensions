@@ -2,7 +2,7 @@ using System;
 
 using NUnit.Framework;
 
-namespace CGTK.Utilities.Extensions.CGPlayerPrefs
+namespace CGTK.Utils.Extensions.CGPlayerPrefs
 {
 	using F32 = Single;
 

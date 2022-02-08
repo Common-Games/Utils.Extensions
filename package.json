@@ -1,6 +1,6 @@
 {
-  "name": "com.common-games.utilities.extensions",
-  "displayName": "CGTK.Utilities.Extensions",
+  "name": "com.common-games.utils.extensions",
+  "displayName": "CGTK.Utils.Extensions",
   "version": "0.2.0",
   "unity": "2020.3",
   "description": "Set of useful Unity-specific C# extensions.",
@@ -24,10 +24,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type": "utility",
+  "type": "utils",
   "dependencies": {
     "com.unity.mathematics": "1.2.1",
-    "com.unity.burst": "1.4.1",
-    "com.unity.test-framework.performance": "1.0.9"
+    "com.unity.burst": "1.4.11",
+    "com.unity.test-framework": "1.1.29",
+    "com.unity.test-framework.performance": "2.8.0-preview"
   }
 }

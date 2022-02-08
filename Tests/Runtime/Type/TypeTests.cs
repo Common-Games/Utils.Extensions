@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 using UnityEngine;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
 	namespace Type
 	{
