@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 using Unity.Mathematics;
 
-namespace CGTK.Utilities.Extensions.CGPlayerPrefs
+namespace CGTK.Utils.Extensions.CGPlayerPrefs
 {
 	using I32 = Int32;
 

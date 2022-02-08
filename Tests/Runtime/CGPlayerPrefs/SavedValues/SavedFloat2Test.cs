@@ -3,7 +3,7 @@ using System;
 using NUnit.Framework;
 using Unity.Mathematics;
 
-namespace CGTK.Utilities.Extensions.CGPlayerPrefs
+namespace CGTK.Utils.Extensions.CGPlayerPrefs
 {
 	public sealed class SavedFloat2Tests
 	{
