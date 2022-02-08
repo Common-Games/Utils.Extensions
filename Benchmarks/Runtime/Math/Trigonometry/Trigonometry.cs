@@ -1,4 +1,5 @@
 using System;
+using CGTK.Utils.Extensions.Benchmarks;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
 using UnityEngine;

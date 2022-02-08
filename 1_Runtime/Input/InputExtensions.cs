@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine.InputSystem;
 #endif
 
-namespace CGTK.Utilities.Extensions.Input
+namespace CGTK.Utils.Extensions
 {
     public static class InputExtensions
     {

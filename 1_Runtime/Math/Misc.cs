@@ -30,7 +30,7 @@ namespace CGTK.Utilities.Extensions
 		
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static F32 ToAbs(ref this F32 value) => Mathf.Abs(value);
+			public static F32 ToAbs(ref this F32 value) => value = Mathf.Abs(value);
 
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -169,9 +169,32 @@ namespace CGTK.Utilities.Extensions
 			
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
-			public static F32 ClampA(this F32 value, F32 min, F32 max)
+			public static F32 Clamp1(this F32 value, F32 min, F32 max)
 				=> Mathf.Clamp(value: value, min: min, max: max);
 			
+			[PublicAPI]
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			public static F32 ClampA(this F32 value, F32 min, F32 max)
+				=> math.clamp(value, min, max);
+
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			public static F32 ClampB(this F32 value, F32 min, F32 max)
+			{
+				if (value < min)
+				{
+					value = min;
+				}
+				else if (value > max)
+				{
+					value = max;
+				}
+				return value;
+			}
+
+			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			public static F32 ClampC(this F32 value, F32 min, F32 max) 
+				=> Max(Min(value, max), min);
+
 			[PublicAPI]
 			[MethodImpl(MethodImplOptions.AggressiveInlining)]
 			public static F32 Clamp01(this F32 value)

@@ -4,9 +4,8 @@ using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
 using Unity.Mathematics;
-
-using CGTK.Utilities.Extensions.Collection;
 using CGTK.Utilities.Extensions.Math;
+using CGTK.Utils.Extensions.Collections;
 
 namespace CGTK.Utilities.Extensions.CGPlayerPrefs
 {

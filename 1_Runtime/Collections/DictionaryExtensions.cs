@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
-namespace CGTK.Utilities.Extensions.Collection
+namespace CGTK.Utils.Extensions.Collections
 {
     [PublicAPI]
     public static class DictionaryExtensions

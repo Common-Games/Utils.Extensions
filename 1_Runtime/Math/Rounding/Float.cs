@@ -59,8 +59,8 @@ namespace CGTK.Utilities.Extensions
 			}
 			
 			[PublicAPI]
-			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
-			public static F32 Round(this F32 value)
+				[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
+				public static F32 Round(this F32 value)
 				=> Mathf.Round(value);
 			
 			[PublicAPI]

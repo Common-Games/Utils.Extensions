@@ -1,5 +1,5 @@
 using System;
-
+using CGTK.Utils.Extensions.Benchmarks;
 using NUnit.Framework;
 
 using Unity.PerformanceTesting;
@@ -83,6 +83,32 @@ namespace CGTK.Utilities.Extensions
 				Measure.Method(() =>
 					{
 						F32 __result = 0.54f.SignD();
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			
+			[Test, Performance]
+			public void SignE()
+			{
+				Measure.Method(() =>
+					{
+						F32 __result = 0.54f.SignE();
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			
+			[Test, Performance]
+			public void SignF()
+			{
+				Measure.Method(() =>
+					{
+						F32 __result = 0.54f.SignF();
 					})
 					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
 					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
@@ -246,6 +272,75 @@ namespace CGTK.Utilities.Extensions
 					.Run();
 			}
 			*/
+
+			#region Clamp
+
+			[Test, Performance]
+			public void Clamp()
+			{
+				Measure.Method(() =>
+					{
+						F32 __result = 25f.Clamp(-10f, 20f);
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			
+			[Test, Performance]
+			public void Clamp1()
+			{
+				Measure.Method(() =>
+					{
+						F32 __result = 25f.Clamp1(-10f, 20f);
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			
+			[Test, Performance]
+			public void ClampA()
+			{
+				Measure.Method(() =>
+					{
+						F32 __result = 25f.ClampA(-10f, 20f);
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			
+			[Test, Performance]
+			public void ClampB()
+			{
+				Measure.Method(() =>
+					{
+						F32 __result = 25f.ClampB(-10f, 20f);
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+			
+			[Test, Performance]
+			public void ClampC()
+			{
+				Measure.Method(() =>
+					{
+						F32 __result = 25f.ClampC(-10f, 20f);
+					})
+					.WarmupCount(BenchmarkSettings.WARMUP_COUNT)
+					.IterationsPerMeasurement(BenchmarkSettings.ITERATIONS)
+					.MeasurementCount(BenchmarkSettings.MEASURE_COUNT)
+					.Run();
+			}
+
+			#endregion
 
 		}
 	}

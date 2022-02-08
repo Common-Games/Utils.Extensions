@@ -1,6 +1,6 @@
 using System;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions.Benchmarks
 {
     public static class BenchmarkSettings
     {
