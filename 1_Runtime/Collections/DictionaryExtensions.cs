@@ -5,10 +5,12 @@ using JetBrains.Annotations;
 
 namespace CGTK.Utils.Extensions.Collections
 {
+    using static PackageConstants;
+    
     [PublicAPI]
     public static class DictionaryExtensions
     {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static TValue GetOrAdd<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, in TKey key) 
             where TValue : new()
         {
@@ -20,7 +22,7 @@ namespace CGTK.Utils.Extensions.Collections
             return __value;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static Boolean GetIfExists<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, in TKey key, out TValue value)
         {
             if (!dictionary.ContainsKey(key))
@@ -33,6 +35,7 @@ namespace CGTK.Utils.Extensions.Collections
             return false;
         }
         
+        [MethodImpl(INLINE)]
         public static void AddIfNew<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, in TKey key, in TValue value)
         {
             if (!dictionary.ContainsKey(key))

@@ -2,8 +2,10 @@ using System;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
-namespace CGTK.Utilities.Extensions.CGPlayerPrefs
+namespace CGTK.Utils.Extensions.CGPlayerPrefs
 {
+	using static PackageConstants;
+	
 	using I32 = Int32;
     
 	[PublicAPI]
@@ -21,11 +23,11 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
     
 	public static partial class CGPlayerPrefs
 	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static I32 Load(in String key, in I32 defaultValue)
 			=> UnityEngine.PlayerPrefs.GetInt(key: key, defaultValue: defaultValue);
         
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static void Save(in String key, in I32 value)
 			=> UnityEngine.PlayerPrefs.SetInt(key: key, value: value);
 	}

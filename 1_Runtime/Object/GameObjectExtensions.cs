@@ -6,88 +6,88 @@ using static UnityEngine.Object;
 
 using JetBrains.Annotations;
 
-namespace CGTK.Utilities
+namespace CGTK.Utils.Extensions
 {
-    namespace Extensions
+    using static PackageConstants;
+    
+    [PublicAPI]
+    public static partial class GameObjectExtensions
     {
-        public static partial class GameObjectExtensions
+        
+        [MethodImpl(INLINE)]
+        public static void CGDestroyAll<T>(this IEnumerable<T> list)
+            where T : Component
         {
-            [PublicAPI]
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            public static void CGDestroyAll<T>(this IEnumerable<T> list)
-                where T : Component
+            foreach (T __component in list)
             {
-                foreach (T __component in list)
-                {
-                    CGDestroyGameObject(__component);
-                }
+                CGDestroyGameObject(__component);
             }
+        }
 
-            [PublicAPI]
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            public static void CGDestroyAll(this IEnumerable<GameObject> list)
+        
+        [MethodImpl(INLINE)]
+        public static void CGDestroyAll(this IEnumerable<GameObject> list)
+        {
+            foreach (GameObject __gameObject in list)
             {
-                foreach (GameObject __gameObject in list)
-                {
-                    CGDestroyGameObject(__gameObject);
-                }
+                CGDestroyGameObject(__gameObject);
             }
+        }
 
-            [PublicAPI]
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            public static void CGDestroyGameObject(this GameObject obj)
+        
+        [MethodImpl(INLINE)]
+        public static void CGDestroyGameObject(this GameObject obj)
+        {
+            #if UNITY_EDITOR
+            if (Application.isPlaying)
             {
-                #if UNITY_EDITOR
-                if (Application.isPlaying)
-                {
-                    Destroy(obj);
-                }
-                else
-                {
-                    DestroyImmediate(obj);
-                }
-                #else
                 Destroy(obj);
-                #endif
             }
+            else
+            {
+                DestroyImmediate(obj);
+            }
+            #else
+            Destroy(obj);
+            #endif
+        }
 
-            [PublicAPI]
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            public static void CGDestroyGameObject<T>(this T component)
-                where T : Component
+        
+        [MethodImpl(INLINE)]
+        public static void CGDestroyGameObject<T>(this T component)
+            where T : Component
+        {
+            #if UNITY_EDITOR
+            if (Application.isPlaying)
             {
-                #if UNITY_EDITOR
-                if (Application.isPlaying)
-                {
-                    Destroy(component.gameObject);
-                }
-                else
-                {
-                    DestroyImmediate(component.gameObject);
-                }
-                #else
                 Destroy(component.gameObject);
-                #endif
             }
-            
-            [PublicAPI]
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            public static void CGDestroyComponent<T>(this T component)
-                where T : Object
+            else
             {
-                #if UNITY_EDITOR
-                if (Application.isPlaying)
-                {
-                    Destroy(component);
-                }
-                else
-                {
-                    DestroyImmediate(component);
-                }
-                #else
-                Destroy(component);
-                #endif
+                DestroyImmediate(component.gameObject);
             }
+            #else
+            Destroy(component.gameObject);
+            #endif
+        }
+        
+        
+        [MethodImpl(INLINE)]
+        public static void CGDestroyComponent<T>(this T component)
+            where T : Object
+        {
+            #if UNITY_EDITOR
+            if (Application.isPlaying)
+            {
+                Destroy(component);
+            }
+            else
+            {
+                DestroyImmediate(component);
+            }
+            #else
+            Destroy(component);
+            #endif
         }
     }
 }

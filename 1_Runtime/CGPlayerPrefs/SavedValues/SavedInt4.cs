@@ -4,11 +4,13 @@ using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
 using Unity.Mathematics;
-using CGTK.Utilities.Extensions.Math;
+using CGTK.Utils.Extensions.Math;
 using CGTK.Utils.Extensions.Collections;
 
-namespace CGTK.Utilities.Extensions.CGPlayerPrefs
+namespace CGTK.Utils.Extensions.CGPlayerPrefs
 {
+	using static PackageConstants;
+	
 	[PublicAPI]
 	public sealed class SavedInt4 : SavedValue<int4>
 	{
@@ -24,11 +26,11 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
 	
 	public static partial class CGPlayerPrefs
 	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static int4 Load(this String key, in int4 defaultValue)
 			=> Load(key, arrayLength: 4, defaultValue: defaultValue.ToArray()).ToInt4();
 
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static void Save(this String key, in int4 value)
 			=> Save(key: key, value: value.ToArray());
 	}

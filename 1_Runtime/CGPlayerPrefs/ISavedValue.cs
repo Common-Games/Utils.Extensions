@@ -1,8 +1,10 @@
 using System;
 using JetBrains.Annotations;
 
-namespace CGTK.Utilities.Extensions.CGPlayerPrefs
+namespace CGTK.Utils.Extensions.CGPlayerPrefs
 {
+    using static PackageConstants;
+    
     /// <summary>
     /// Abstract class describing a PlayerPrefs values
     /// </summary>

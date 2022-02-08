@@ -5,8 +5,10 @@ using JetBrains.Annotations;
 
 using UnityEngine;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
+	using static PackageConstants;
+	
 	using F32 = Single;
 	using F64 = Double;
 
@@ -22,20 +24,18 @@ namespace CGTK.Utilities.Extensions
 
 	namespace Math
 	{
+		[PublicAPI]
 		public static partial class Interpolation
 		{
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static Color Lerp(in this Color from, in Color to, in F32 t)
 				=> Color.Lerp(a: from, b: to, t: t);
 			
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static Color LerpUnclamped(in this Color from, in Color to, in F32 t)
 				=> Color.LerpUnclamped(a: from, b: to, t: t);
-
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static Vector3 LerpInverse(in this Color value, in Color from, in Color to)
 			{
 				F32 r = Mathf.InverseLerp(a: from.r, b: to.r, value: value.r);

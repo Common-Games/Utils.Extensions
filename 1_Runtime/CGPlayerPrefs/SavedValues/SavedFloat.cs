@@ -3,8 +3,10 @@ using System.Runtime.CompilerServices;
 
 using JetBrains.Annotations;
 
-namespace CGTK.Utilities.Extensions.CGPlayerPrefs
+namespace CGTK.Utils.Extensions.CGPlayerPrefs
 {
+    using static PackageConstants;
+    
     using F32 = Single;
     
     [PublicAPI]
@@ -22,11 +24,11 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
     
     public static partial class CGPlayerPrefs
     {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static F32 Load(in String key, in F32 defaultValue)
             => UnityEngine.PlayerPrefs.GetFloat(key: key, defaultValue: defaultValue);
         
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static void Save(in String key, in F32 value)
             => UnityEngine.PlayerPrefs.SetFloat(key: key, value: value);
     }

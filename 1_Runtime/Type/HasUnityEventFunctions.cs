@@ -1,14 +1,18 @@
 using System;
 using System.Runtime.CompilerServices;
-using JetBrains.Annotations;
+
 using UnityEngine;
 
-namespace CGTK.Utilities.Extensions
+using JetBrains.Annotations;
+
+namespace CGTK.Utils.Extensions
 {
+	using static PackageConstants;
+	
 	[PublicAPI]
     public static class TypeChecks
     {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static Boolean HasUnityEventFunctions(this Type type)
 	        => (type == null) || (type.IsSubclassOf(c: typeof(MonoBehaviour)) || type.IsSubclassOf(c: typeof(ScriptableObject)));
 	}

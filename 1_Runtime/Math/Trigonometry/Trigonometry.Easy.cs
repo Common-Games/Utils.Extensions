@@ -1,12 +1,13 @@
 using System;
 using System.Runtime.CompilerServices;
 
-using JetBrains.Annotations;
-
 using UnityEngine;
+//using static CGTK.Utils.Extensions.MathematicalConstants;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
+	using static PackageConstants;
+	
 	using F32 = Single;
 	using F64 = Double;
 
@@ -24,54 +25,45 @@ namespace CGTK.Utilities.Extensions
 	{
 		public static partial class Trigonometry
 		{
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static F32 SqrDistance(in this Vector3 from, in Vector3 to)
 				=> (to - from).sqrMagnitude;
-
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static F32 SqrDistance(this Transform from, in Transform to)
 				=> (to.position - from.position).sqrMagnitude;
 			
 			/// <summary>
 			/// Faster than Vector3.Distance, exact same result.
 			/// </summary>
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static F32 Distance(in this Vector3 from, in Vector3 to)
 				=> (to - from).magnitude;
-
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static F32 Distance(this Transform from, in Transform to)
 				=> (to.position - from.position).magnitude;
 			
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static F32 AsDegrees(in this F32 angle)
 				=> (angle * Constants.RAD_TO_DEG);
-
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static F32 AsRadians(in this F32 angle)
 				=> (angle * Constants.DEG_TO_RAD);
 			
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static F32 ToDegrees(ref this F32 angle)
 				=> (angle *= Constants.RAD_TO_DEG);
 			
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static F32 ToRadians(ref this F32 angle)
 				=> (angle *= Constants.DEG_TO_RAD);
 			
 			
 			//TODO: Try to get these to work with Tuples and then as extesnion method.
 			
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static F32 GetAngle(in F32? opposite = null, in F32? adjacent = null, in F32? hypotenuse = null)
 			{
 				Boolean __hasOpposite   = (opposite != null);
@@ -96,10 +88,8 @@ namespace CGTK.Utilities.Extensions
 				//TODO: Error
 				return 0;
 			}
-
-			//done
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static F32 GetHypotenuse(in F32? opposite = null, in F32? adjacent = null, in F32? angle = null)
 			{
 				Boolean __hasOpposite = (opposite != null);
@@ -126,9 +116,7 @@ namespace CGTK.Utilities.Extensions
 				return 0;
 			}
 			
-			//done
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static F32 GetAdjacent(in F32? opposite = null, in F32? hypotenuse = null, in F32? angle = null)
 			{
 				Boolean __hasOpposite   = (opposite != null);
@@ -158,8 +146,7 @@ namespace CGTK.Utilities.Extensions
 				return 0;
 			}
 			
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static F32 GetOpposite(in F32? adjacent = null, in F32? hypotenuse = null, in F32? angle = null)
 			{
 				Boolean __hasAdjacent   = (adjacent != null);

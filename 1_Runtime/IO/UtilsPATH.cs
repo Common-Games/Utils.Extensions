@@ -1,11 +1,12 @@
 using System;
 using System.IO;
+
 using JetBrains.Annotations;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
-    //public static class UtilsPATH
-    //public static class EnvironmentExtensions
+    using static PackageConstants;
+    
     public static class UtilsPATH
     {
         [PublicAPI]

@@ -5,8 +5,10 @@ using JetBrains.Annotations;
 
 using UnityEngine;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
+	using static PackageConstants;
+	
 	using F32 = Single;
 	using F64 = Double;
 
@@ -24,18 +26,15 @@ namespace CGTK.Utilities.Extensions
 	{
 		public static partial class Rounding
 		{
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static I32 ClosestPowerOfTwo(this I32 value)
 				=> Mathf.ClosestPowerOfTwo(value: value);
 			
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static I32 NextPowerOfTwo(this I32 value)
 				=> Mathf.NextPowerOfTwo(value: value);
 			
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static I32 PreviousPowerOfTwo(this I32 value)
 			{
 				if (value == 0) return 0;
@@ -48,8 +47,7 @@ namespace CGTK.Utilities.Extensions
 				return value - (value >> 1);
 			}
 			
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static I32 ToPowerOfTwo(this I32 value, Mode roundingMode)
 			{
 				return roundingMode switch

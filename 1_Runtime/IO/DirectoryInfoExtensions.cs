@@ -4,12 +4,14 @@ using System.Runtime.CompilerServices;
 
 using JetBrains.Annotations;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
+	using static PackageConstants;
+	
+	[PublicAPI]
 	public static class DirectoryInfoExtensions
 	{
-		[PublicAPI]
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static void RemoveFiles(this DirectoryInfo directory)
 		{
 			foreach (FileInfo __file in directory.GetFiles())
@@ -17,9 +19,8 @@ namespace CGTK.Utilities.Extensions
 				__file.Delete();  
 			}
 		}
-
-		[PublicAPI]
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		
+		[MethodImpl(INLINE)]
 		public static void RemoveFiles(this DirectoryInfo directory, in String fileExtensionToRemove)
 		{
 			if (String.IsNullOrEmpty(fileExtensionToRemove))

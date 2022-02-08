@@ -4,8 +4,10 @@ using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace CGTK.Utilities.Extensions.CGPlayerPrefs
+namespace CGTK.Utils.Extensions.CGPlayerPrefs
 {
+    using static PackageConstants;
+    
     using F32 = Single;
 
     using I32 = Int32;
@@ -18,19 +20,19 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
     [PublicAPI]
     public static partial class CGPlayerPrefs
     {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static F32[] Load(this String key, in U16 arrayLength, params F32[] defaultValue)
             => Load(key, arrayLength, PlayerPrefs.GetFloat, defaultValue);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static I32[] Load(this String key, in U16 arrayLength, params I32[] defaultValue)
             => Load(key, arrayLength, PlayerPrefs.GetInt, defaultValue);
         
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static String[] Load(this String key, in U16 arrayLength, params String[] defaultValue)
             => Load(key, arrayLength, PlayerPrefs.GetString, defaultValue);
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         private static T[] Load<T>(this String key, in U16 arrayLength, in Func<String, T, T> getFn, params T[] defaultValue)
         {
             T[] __result = new T[arrayLength];
@@ -53,7 +55,7 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
         }
         
         
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static void Save(this String key, in F32[] value)
         {
             for (U16 __index = 0; __index < value.Length; __index++)
@@ -62,7 +64,7 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
             }
         }
         
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static void Save(this String key, in I32[] value)
         {
             for (U16 __index = 0; __index < value.Length; __index++)
@@ -71,7 +73,7 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
             }
         }
         
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static void Save(this String key, in String[] value)
         {
             for (U16 __index = 0; __index < value.Length; __index++)

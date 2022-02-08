@@ -4,7 +4,7 @@ using NUnit.Framework;
 using Unity.PerformanceTesting;
 using UnityEngine;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
 	using F32 = Single;
 	using F64 = Double;

@@ -4,33 +4,34 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
-
 using UnityEngine;
 
 using JetBrains.Annotations;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
+	using static PackageConstants;
+	
 	[PublicAPI]
     public static class StringExtensions
 	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static Boolean IsNullOrWhiteSpace(this String input) 
 			=> String.IsNullOrWhiteSpace(input);
 		
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static Boolean IsNullOrEmpty(this String input) 
 			=> String.IsNullOrEmpty(input);
 		
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static Boolean NotNullOrWhiteSpace(this String input) 
 			=> !String.IsNullOrWhiteSpace(input);
 		
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static Boolean NotNullOrEmpty(this String input) 
 			=> !String.IsNullOrEmpty(input);
 
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static Boolean StartsWithAny(this String input, params String[] options)
 		{
 			foreach (String __option in options)
@@ -41,7 +42,7 @@ namespace CGTK.Utilities.Extensions
 			return false;
 		}
 		
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static (String matchingPart, String nonMatchingLHS, String nonMatchingRHS) SplitAtDeviation(this String lhs, in String rhs)
 		{
 			if(lhs.IsNullOrWhiteSpace() || rhs.IsNullOrWhiteSpace()) return (null, lhs, rhs);
@@ -83,7 +84,7 @@ namespace CGTK.Utilities.Extensions
 		public static String ToUnityFormatting(this String value) => value.Replace(oldChar: Path.DirectorySeparatorChar, newChar: Path.AltDirectorySeparatorChar);
 
 		/// <summary> Re-bases lhs path to be relative to the "<paramref name="to"></paramref>" path. </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static String MakeRelative(this String value, String to)
 		{
 			if (value.IsNullOrEmpty()) throw new ArgumentNullException(paramName: nameof(value));
@@ -130,7 +131,7 @@ namespace CGTK.Utilities.Extensions
 		public static String Remove(this String value, in String text) => value.Replace(oldValue: text, newValue: String.Empty);
 
 		/// <summary> Re-bases lhs path to be relative to the "<paramref name="to"></paramref>" path. </summary>
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static String MakeRelativeTo(this String from, in String to)
 		{
 			StringBuilder __path = new StringBuilder(260); // MAX_PATH

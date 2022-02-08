@@ -5,8 +5,10 @@ using JetBrains.Annotations;
 
 using Unity.Mathematics;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
+	using static PackageConstants;
+	
 	using F32 = Single;
 	using F64 = Double;
 
@@ -15,10 +17,9 @@ namespace CGTK.Utilities.Extensions
 
 	namespace Math
 	{
-		
 		public static partial class VectorExtensions
 		{
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static I32[] ToArray(in this int3 self)
 				=> new I32[3]
 				{

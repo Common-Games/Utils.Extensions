@@ -5,8 +5,10 @@ using JetBrains.Annotations;
 
 using Unity.Mathematics;
 
-namespace CGTK.Utilities.Extensions.CGPlayerPrefs
+namespace CGTK.Utils.Extensions.CGPlayerPrefs
 {
+	using static PackageConstants;
+	
 	[PublicAPI]
 	public sealed class SavedQuaternion : SavedValue<quaternion>
 	{
@@ -22,11 +24,11 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
 	
 	public static partial class CGPlayerPrefs
 	{
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static quaternion Load(this String key, in quaternion defaultValue)
 			=> Load(key: key, defaultValue: defaultValue.value);
 			
-		[MethodImpl(MethodImplOptions.AggressiveInlining)]
+		[MethodImpl(INLINE)]
 		public static void Save(this String key, in quaternion value)
 			=> Save(key: key, value: value.value);
 	}

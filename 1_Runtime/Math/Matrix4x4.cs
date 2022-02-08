@@ -6,8 +6,10 @@ using JetBrains.Annotations;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
+	using static PackageConstants;
+	
 	using F32 = Single;
 	using F64 = Double;
 
@@ -26,21 +28,19 @@ namespace CGTK.Utilities.Extensions
 		using static Trigonometry;
 		using static Misc;
 		
+		[PublicAPI]
 		public static partial class Matrix4x4Extensions
 		{
-
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static Vector3 Position(in this Matrix4x4 m)
 				=> new Vector3(x: m[0, 3], y: m[1, 3], z: m[2, 3]);
-
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static Vector3 Scale(this Matrix4x4 m)
 				=> new Vector3(x: m.GetColumn(0).magnitude, y: m.GetColumn(1).magnitude, z: m.GetColumn(2).magnitude);
-
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static Quaternion Rotation(in this Matrix4x4 m)
 			{
 				Vector3 __scale = Scale(m);

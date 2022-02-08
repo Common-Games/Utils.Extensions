@@ -9,12 +9,12 @@ using static Unity.Burst.Intrinsics.X86.Sse2;
 using static Unity.Burst.Intrinsics.X86.Sse3;
 using static Unity.Burst.Intrinsics.Common;
 
-using JetBrains.Annotations;
-
 using UnityEngine;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
+	using static PackageConstants;
+	
 	using F32 = Single;
 	using F64 = Double;
 
@@ -75,40 +75,40 @@ namespace CGTK.Utilities.Extensions
 				}
 			}
 
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static F32 SinFast(in this F32 value)
 				=> SinCache[(I32) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static F32 CosFast(in this F32 value)
 				=> CosCache[(I32) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static F32 TanFast(in this F32 value)
 				=> TanCache[(I32) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
 			//TODO: Maybe add clamps to Asin/Acos, so it doesn't excede -1 and 1
 
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static F32 AsinFast(in this F32 value)
 				=> AsinCache[(I32) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static F32 AcosFast(in this F32 value)
 				=> AcosCache[(I32) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static F32 AtanFast(in this F32 value)
 				=> AtanCache[(I32) (value * _INDEX_FACTOR) & _INDEX_MASK];
 
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static I32 SqrtFast(in this I32 value)
 			{
 				if (value == 0) return 0; // Avoid zero divide
@@ -137,8 +137,8 @@ namespace CGTK.Utilities.Extensions
 			}
 			
 			//Based on https://www.gamedev.net/forums/topic/704525-3-quick-ways-to-calculate-the-square-root-in-c/5417778/?page=1
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static unsafe F32 SqrtFast(this F32 value)
 			{
 				IntFloat __union;
@@ -150,8 +150,8 @@ namespace CGTK.Utilities.Extensions
 			}
 
 			[BurstCompile]
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			
+			[MethodImpl(INLINE)]
 			public static F32 SqrtSlow(in this F32 value)
 			{
 				v128 __reg = set_ps1(value);

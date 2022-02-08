@@ -4,11 +4,13 @@ using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
 using Unity.Mathematics;
-using CGTK.Utilities.Extensions.Math;
+using CGTK.Utils.Extensions.Math;
 using CGTK.Utils.Extensions.Collections;
 
-namespace CGTK.Utilities.Extensions.CGPlayerPrefs
+namespace CGTK.Utils.Extensions.CGPlayerPrefs
 {
+    using static PackageConstants;
+    
     [PublicAPI]
     public sealed class SavedFloat2 : SavedValue<float2>
     {
@@ -24,11 +26,11 @@ namespace CGTK.Utilities.Extensions.CGPlayerPrefs
 
     public static partial class CGPlayerPrefs
     {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static float2 Load(in String key, in float2 defaultValue)
             => Load(key, arrayLength: 2, defaultValue: defaultValue.ToArray()).ToFloat2();
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        [MethodImpl(INLINE)]
         public static void Save(in String key, in float2 value)
             => Save(key: key, value: value.ToArray());
     }

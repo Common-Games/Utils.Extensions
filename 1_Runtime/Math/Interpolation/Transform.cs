@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 
 using UnityEngine;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
 	using F32 = Single;
 	using F64 = Double;
@@ -26,7 +26,7 @@ namespace CGTK.Utilities.Extensions
 		public static partial class Interpolation
 		{
 			//[PublicAPI]
-			//[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			//[MethodImpl(INLINE)]
 			//public static IEnumerator LerpPosition(this Transform transform, in Vector3 to, in float t)
 			
 		}

@@ -12,6 +12,8 @@ using Random = System.Random;
 
 namespace CGTK.Utils.Extensions.Collections
 {
+    using static PackageConstants;
+    
     using F32 = Single;
     using F64 = Double;
     

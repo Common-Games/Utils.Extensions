@@ -5,8 +5,10 @@ using UnityEngine;
 
 using JetBrains.Annotations;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
+	using static PackageConstants;
+	
 	using F32 = Single;
 	using F64 = Double;
 
@@ -28,8 +30,7 @@ namespace CGTK.Utilities.Extensions
 			/// <param name="self"></param>
 			/// <param name="compareTo"></param>
 			/// <returns></returns>
-			[PublicAPI]
-			[MethodImpl(MethodImplOptions.AggressiveInlining)]
+			[MethodImpl(INLINE)]
 			public static Boolean Approx(in this Vector3 self, in Vector3 compareTo) 
 				=> (self.x.Approx(compareTo.x) && 
 					self.y.Approx(compareTo.y) && 

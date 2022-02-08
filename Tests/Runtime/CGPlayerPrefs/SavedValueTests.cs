@@ -2,7 +2,7 @@ using System;
 
 using NUnit.Framework;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
 	using F32 = Single;
 

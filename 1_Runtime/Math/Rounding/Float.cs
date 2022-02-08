@@ -5,8 +5,10 @@ using JetBrains.Annotations;
 
 using UnityEngine;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 { 
+	using static PackageConstants;
+	
 	using F32 = Single;
 	using F64 = Double;
 
@@ -22,9 +24,10 @@ namespace CGTK.Utilities.Extensions
 
 	namespace Math
 	{
+		[PublicAPI]
 		public static partial class Rounding
 		{
-			[PublicAPI]
+			
 			public enum Mode : U8
 			{
 				Nearest,
@@ -32,7 +35,7 @@ namespace CGTK.Utilities.Extensions
 				Down
 			}
 
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static F32 Round(this F32 value, in Mode roundingMode)
 			{
@@ -45,7 +48,7 @@ namespace CGTK.Utilities.Extensions
 				};
 			}
 			
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static I32 RoundToInt(this F32 value, Mode roundingMode)
 			{
@@ -58,53 +61,53 @@ namespace CGTK.Utilities.Extensions
 				};
 			}
 			
-			[PublicAPI]
+			
 				[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 				public static F32 Round(this F32 value)
 				=> Mathf.Round(value);
 			
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static F32 Round2(this F32 value)
 				=> (F32)System.Math.Round(a: value);
 			
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static I32 RoundToInt(this F32 value)
 				=> Mathf.RoundToInt(value);
 
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static F32 Floor(this F32 value)
 				=> Mathf.Floor(value);
 			
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static I32 FloorToInt(this F32 value)
 				=> Mathf.FloorToInt(value);
 
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static F32 Ceil(this F32 value)
 				=> Mathf.Ceil(value);
 			
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static I32 CeilToInt(this F32 value)
 				=> Mathf.CeilToInt(value);
 
 			
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static I32 ClosestPowerOfTwo(this F32 value)
 				=> Mathf.ClosestPowerOfTwo(value: Mathf.RoundToInt(value));
 			
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static I32 NextPowerOfTwo(this F32 value)
 				=> Mathf.NextPowerOfTwo(value: Mathf.RoundToInt(value));
 
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static I32 PreviousPowerOfTwo(this F32 value)
 			{
@@ -123,7 +126,7 @@ namespace CGTK.Utilities.Extensions
 				return __valueRoundedToInt - (__valueRoundedToInt >> 1);
 			}
 
-			[PublicAPI]
+			
 			[MethodImpl(methodImplOptions: MethodImplOptions.AggressiveInlining)]
 			public static I32 ToPowerOfTwo(this F32 value, Mode mode)
 			{

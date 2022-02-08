@@ -5,8 +5,10 @@ using UnityEngine;
 
 using JetBrains.Annotations;
 
-namespace CGTK.Utilities.Extensions
+namespace CGTK.Utils.Extensions
 {
+	using static PackageConstants;
+	
 	using F32 = Single;
 	using F64 = Double;
 
