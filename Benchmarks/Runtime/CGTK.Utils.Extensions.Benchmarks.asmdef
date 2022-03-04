@@ -5,7 +5,7 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Unity.PerformanceTesting",
-        "CGTK.Utils.Extensions"
+        "CGTK.Utils.Extensions","UnityEditor.UI","UnityEngine.UI"
     ],
     "includePlatforms": [
         "Editor"

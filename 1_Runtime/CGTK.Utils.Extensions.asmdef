@@ -4,7 +4,7 @@
     "references": [
         "Unity.Burst",
         "Unity.Mathematics",
-        "Unity.InputSystem"
+        "Unity.InputSystem","UnityEditor.UI","UnityEngine.UI"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
