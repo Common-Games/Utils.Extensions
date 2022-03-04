@@ -25,6 +25,18 @@ namespace CGTK.Utils.Extensions.Collections
         [MethodImpl(AggressiveInlining)]
         public static T RandomElement<T>(this IList<T> list, in Random RNG = null)
             => (list.Count == 0) ? default : list.ElementAt(index: (RNG ?? DefaultRNG).Next(maxValue: list.Count));
+			
+        [MethodImpl(AggressiveInlining)]
+        public static void AddRangeUnique<T>(this IList<T> list, IEnumerable<T> items )
+        {
+            foreach(T _item in items)
+            {
+                if(!list.Contains(_item))
+                {
+                    list.Add(_item);
+                }
+            }
+        }
         
         [MethodImpl(AggressiveInlining)]
         public static float2 ToFloat2(this IList<Single> value)

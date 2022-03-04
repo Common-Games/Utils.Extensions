@@ -6,7 +6,7 @@
         "UnityEditor.TestRunner",
         "Unity.PerformanceTesting",
         "Unity.Mathematics",
-        "CGTK.Utils.Extensions"
+        "CGTK.Utils.Extensions","UnityEditor.UI","UnityEngine.UI"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
